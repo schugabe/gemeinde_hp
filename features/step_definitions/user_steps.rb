@@ -127,7 +127,7 @@ When /^I edit my account details$/ do
 end
 
 When /^I look at the list of users$/ do
-  visit '/'
+  visit users_path
 end
 
 ### THEN ###
@@ -186,4 +186,8 @@ end
 Then /^I should see my name$/ do
   create_user
   page.should have_content @user[:name]
+end
+
+Then(/^I should see my new name$/) do
+  page.should have_content "newname"
 end
