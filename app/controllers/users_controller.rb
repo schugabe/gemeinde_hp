@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  authorize_actions_for User
   def index
     @users = User.all
   end

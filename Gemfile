@@ -34,8 +34,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-
-gem 'devise', '~> 3.1'
+gem 'devise', '>= 3.1'
+gem 'authority', '>= 2.9.0'
+gem 'rolify', '>= 3.2.0'
 
 group :development, :test do
   gem 'factory_girl_rails'
@@ -45,7 +46,7 @@ end
 group :test do
   gem 'capybara'
   gem 'cucumber-rails', :require=>false
-  gem 'database_cleaner', '1.0.1'
+  gem 'database_cleaner', '>= 1.0.1'
   gem 'email_spec'
   gem 'launchy'
 end

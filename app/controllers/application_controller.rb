@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
   
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def current_or_null_user
+    if current_user == nil
+      User.new
+    else
+      current_user
+    end
+  end
+  
 protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name

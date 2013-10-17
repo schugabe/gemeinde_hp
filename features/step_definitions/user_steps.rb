@@ -18,6 +18,7 @@ def create_user
   create_visitor
   delete_user
   @user = FactoryGirl.create(:user, @visitor)
+  @user.add_role :authorized
 end
 
 def delete_user
@@ -190,4 +191,11 @@ end
 
 Then(/^I should see my new name$/) do
   page.should have_content "newname"
+end
+
+Then(/^I should( not)? see "(.*?)"$/) do |boolean, content|
+  actual = page.has_content?(content)
+  expected = !boolean
+  message = "Page should #{boolean} have content '#{content}'"
+  assert( actual == expected, message )
 end
