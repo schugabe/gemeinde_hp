@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  profile:
+      Profile: profile
+      edit: "Edit profile"
+      logout: "Logout"
+      login: "Login"
+      sign_up: "Sign up"

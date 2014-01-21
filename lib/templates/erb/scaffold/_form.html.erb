@@ -1,13 +1,28 @@
-<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
-  <%%= f.error_notification %>
+<%%= bootstrap_form_for(@<%= singular_table_name %>, style: :horizontal, left: "col-sm-2", right: "col-sm-4") do |f| %>
+  <%% if @<%= singular_table_name %>.errors.any? %>
+    <div class="alert alert-warning">
+      <ul>
+      <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
+        <li><%%= msg %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
 
-  <div class="form-inputs">
-  <%- attributes.each do |attribute| -%>
-    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+<% attributes.each do |attribute| -%>
+ 
+<% if attribute.password_digest? -%>
+    <%%= f.password_field :password %>
+    <%%= f.password_field :password_confirmation %>
+<% else -%>
+  <%- if attribute.reference? -%>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %> %>
+  <%- else -%>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
   <%- end -%>
-  </div>
-
-  <div class="form-actions">
-    <%%= f.button :submit %>
-  </div>
+<% end -%>
+<% end -%>
+  <%%= f.form_group do %>
+    <%%= f.primary t('view.save') %>
+  <%% end %>
 <%% end %>

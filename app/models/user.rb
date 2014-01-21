@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   
   def confirm!
     super
-    @user.add_role :authorized
+    add_role :authorized
   end
 end

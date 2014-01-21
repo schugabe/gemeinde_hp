@@ -1,28 +1,21 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= t('devise.profile.edit') %></h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
-  <%= f.error_notification %>
+<%= bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, style: :horizontal, left: "col-sm-2", right: "col-sm-4") do |f| %>
+  <%= devise_error_messages! %>
 
-  <div class="form-inputs">
-	<%= f.input :name, :required => true, :autofocus => true %>
-    <%= f.input :email, :required => true%>
+  <%= f.email_field :email, :autofocus => true %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div><%= t('devise.profile.waiting') %> <%= resource.unconfirmed_email %></div>
+  <% end %>
 
-    <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
+  <%= f.password_field :password, :autocomplete => "off", help: t('devise.profile.password') %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :current_password, help: t('devise.profile.current_password') %>
+  <%= f.form_group do %>
+       <%= f.submit t('devise.profile.update') %>
+  <% end %>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
+<h3><%= t('devise.profile.cancel') %></h3>
+<p><%= button_to t('devise.profile.do_cancel'), registration_path(resource_name), :data => { :confirm => t('devise.profile.cancel_confirmation')}, :method => :delete, class: "btn btn-danger"  %></p>

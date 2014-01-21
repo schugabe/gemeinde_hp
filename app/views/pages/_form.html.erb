@@ -1,0 +1,17 @@
+<%= bootstrap_form_for(@page, style: :horizontal, left: "col-sm-2", right: "col-sm-4") do |f| %>
+<% if @page.errors.any? %>
+<div class="alert alert-warning">
+    <ul>
+        <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+    <%= f.text_field :title %>
+    <%= f.text_area :content %>
+    <%= f.form_group do %>
+        <%= f.submit "asdf" %>
+    <% end %>
+<% end %>

@@ -1,5 +1,7 @@
 GemeindeHp::Application.routes.draw do
   
+  resources :pages
+
   get "home/index"
   root :to => "home#index"
   

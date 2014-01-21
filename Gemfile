@@ -1,21 +1,21 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-gem 'bootstrap-sass', '~> 2.3.2.1'
-gem 'simple_form', '~> 3.0.0'
+gem 'bootstrap-sass', '~> 3.0'
+gem 'bootstrap_form', '~> 2.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
@@ -36,7 +36,7 @@ end
 
 gem 'devise', '>= 3.1'
 gem 'authority', '>= 2.9.0'
-gem 'rolify', '>= 3.2.0'
+gem 'rolify', github: 'EppO/rolify'
 
 group :development, :test do
   gem 'factory_girl_rails'
