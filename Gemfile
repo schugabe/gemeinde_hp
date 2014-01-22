@@ -24,6 +24,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'jquery-turbolinks'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -37,6 +38,9 @@ end
 gem 'devise', '>= 3.1'
 gem 'authority', '>= 2.9.0'
 gem 'rolify', github: 'EppO/rolify'
+gem 'bootstrap-wysihtml5-rails'
+gem 'sanitize-rails', :require => 'sanitize/rails'
+gem 'fullcalendar-rails'
 
 group :development, :test do
   gem 'factory_girl_rails'

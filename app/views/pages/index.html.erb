@@ -1,29 +1,26 @@
-<h1>Listing pages</h1>
+<h1><%= t('staff.pages') %></h1>
+<div class="row" data-no-turbolink>
+    <div class="col-md-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= Page.human_attribute_name("title") %></th>
+          <th><%= t('actions.actions') %></th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pages.each do |page| %>
-      <tr>
-        <td><%= page.title %></td>
-        <td><%= page.content %></td>
-        <td><%= link_to 'Show', page %></td>
-        <td><%= link_to 'Edit', edit_page_path(page) %></td>
-        <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @pages.each do |page| %>
+          <tr>
+            <td><%= link_to page.title, page %></td>
+            <td><%= link_to t('actions.edit'), edit_page_path(page), class: "btn btn-default btn-sm" %> <%= link_to t('actions.destroy'), page, method: :delete, data: { confirm: t('actions.confirm') },class: "btn btn-danger btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+</div>
 
 <br>
 
-<%= link_to 'New Page', new_page_path %>
+<%= link_to t('actions.new_page') , new_page_path, class: "btn btn-primary" %>

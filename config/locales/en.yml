@@ -20,10 +20,29 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  actions:
+      save: Save
+      edit: Edit
+      destroy: Destroy
+      confirm: 'Are you sure?'
+      show: Show
+      back: Back
+      actions: Actions
+      new_page: New Page
   profile:
       Profile: profile
       edit: "Edit profile"
       logout: "Logout"
       login: "Login"
       sign_up: "Sign up"
+  staff:
+      manage: Manage
+      pages: Pages
+  activerecord:
+      models:
+          page: Page
+      attributes:
+          page:
+              title: Title
+              permalink: Permalink
+              content: Content
