@@ -6,5 +6,5 @@ json.array!(@events) do |event|
   json.set! :end, event.ends_at.rfc822
   json.set! :allDay, event.all_day
   json.set! :recurring, 'false'
-  json.url event_url(event, format: :json)
+  json.url event_url(event)
 end

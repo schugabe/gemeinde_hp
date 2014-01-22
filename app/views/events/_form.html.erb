@@ -1,3 +1,10 @@
+<div class='input-group date datetimepicker'>
+	<input type='text' class="form-control" />
+	<span class="input-group-addon">
+		<span class="glyphicon glyphicon-calendar"></span>
+    </span>
+</div>
+
 <%= bootstrap_form_for(@event, style: :horizontal, left: "col-sm-2", right: "col-sm-4") do |f| %>
   <% if @event.errors.any? %>
     <div class="alert alert-warning">
@@ -13,8 +20,13 @@
     <%= f.text_field :title %>
  
     <%= f.text_area :description %>
- 
-    <%= f.datetime_select :starts_at %>
+	<div class='input-group date datetimepicker'>
+		<input type='text' class="form-control" />
+		<span class="input-group-addon">
+			<span class="glyphicon glyphicon-calendar"></span>
+	    </span>
+	</div>
+    
  
     <%= f.datetime_select :ends_at %>
  

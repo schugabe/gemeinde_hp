@@ -40,7 +40,6 @@ gem 'authority', '>= 2.9.0'
 gem 'rolify', github: 'EppO/rolify'
 gem 'bootstrap-wysihtml5-rails'
 gem 'sanitize-rails', :require => 'sanitize/rails'
-gem 'fullcalendar-rails'
 
 group :development, :test do
   gem 'factory_girl_rails'
