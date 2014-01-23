@@ -1,7 +1,7 @@
-<p>Hello <%= @resource.email %>!</p>
+<p>Hallo <%= @resource.email %>!</p>
 
-<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+<p>Dein Profil wurde gesperrt.</p>
 
-<p>Click the link below to unlock your account:</p>
+<p>Bitte klicke auf den Link um das Profil wieder zu aktivieren:</p>
 
-<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @token) %></p>
+<p><%= link_to 'Profil aktivieren', unlock_url(@resource, :unlock_token => @token) %></p>
