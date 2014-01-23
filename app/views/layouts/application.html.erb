@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Thening" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
+    <link rel="apple-touch-icon-precomposed" href="/favicon_hires.png">
+    <link rel="shortcut icon" href="/favicon.ico">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -19,8 +21,7 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Kirche im Feld</h1>
-            <p>Evangelische Gemeinde Thening</p>
-            <p><a class="btn btn-primary btn-lg" role="button">Über uns &raquo;</a></p>
+            <p>Evangelische Kirche Thening</p>
         </div>
     </div>
 
@@ -29,6 +30,7 @@
         <div class="row">
             <div class="col-md-12">
                 <%= render 'layouts/messages' %>
+                <%= render_breadcrumbs %>
                 <%= yield %>
             </div>
         </div>
@@ -36,7 +38,7 @@
         <hr>
 
         <footer>
-            <p>&copy; Evangelische Gemeinde Thening 2014</p>
+            <p>&copy; Evangelische Gemeinde Thening 2014 | <a href="/page/impressum">Impressum</a></p>
         </footer>
     </div> <!-- /container -->
 </body>

@@ -1,37 +1,71 @@
-<div class='input-group date datetimepicker'>
-	<input type='text' class="form-control" />
-	<span class="input-group-addon">
-		<span class="glyphicon glyphicon-calendar"></span>
-    </span>
-</div>
-
-<%= bootstrap_form_for(@event, style: :horizontal, left: "col-sm-2", right: "col-sm-4") do |f| %>
-  <% if @event.errors.any? %>
-    <div class="alert alert-warning">
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
+<%= form_for(@event, html: { class: "form-horizontal" }) do |f| %>
+<% if @event.errors.any? %>
+<div class="alert alert-danger">
+    <ul>
+        <% @event.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
- 
-    <%= f.text_field :title %>
- 
-    <%= f.text_area :description %>
-	<div class='input-group date datetimepicker'>
-		<input type='text' class="form-control" />
-		<span class="input-group-addon">
-			<span class="glyphicon glyphicon-calendar"></span>
-	    </span>
-	</div>
-    
- 
-    <%= f.datetime_select :ends_at %>
- 
-    <%= f.check_box :all_day %>
-  <%= f.form_group do %>
-    <%= f.submit "asdf" %>
-  <% end %>
+        <% end %>
+    </ul>
+</div>
 <% end %>
+    <div class="form-group">
+        <%= f.label :title, class: "col-sm-2 control-label" %>
+        <div class="col-sm-4">
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :starts_at_date, class: "col-sm-2 control-label" %>
+        <div class="col-sm-2">
+            <div class='input-group date datepicker' id="event_starts_at_date_datepicker">
+                <%= f.text_field :starts_at_date, class: "form-control"  %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class='input-group date timepicker'>
+                <%= f.text_field :starts_at_time, class: "form-control"  %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <%= f.label :ends_at_date, class: "col-sm-2 control-label" %>
+        <div class="col-sm-2">
+            <div class='input-group date datepicker' id="event_ends_at_date_datepicker">
+                <%= f.text_field :ends_at_date, class: "form-control"  %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class='input-group date timepicker'>
+                <%= f.text_field :ends_at_time, class: "form-control"  %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <%= f.label :description, class: "col-sm-2 control-label" %>
+        <div class="col-sm-8">
+            <%= f.text_area :description, class: "form-control wysihtml5", rows: 15  %>
+        </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit t('actions.save'), class: "btn btn-default" %>
+      </div>
+  </div>
+<% end %>
+

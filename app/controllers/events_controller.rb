@@ -1,76 +1,62 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-  # GET /events
-  # GET /events.json
+  authorize_actions_for Event
+  
+  add_breadcrumb :index, :calendar_index_path
+  
   def index
-    @events = Event.all
-    @events = @events.after(params['start']) if (params['start'])
-    @events = @events.before(params['end']) if (params['end'])
+    @events = Event.order("starts_at desc")
   end
 
-  # GET /events/1
-  # GET /events/1.json
   def show
+    if @event.nil?
+      redirect_to root_path, notice: "Veranstaltung nicht gefunden" and return
+    end
+    add_breadcrumb @event.title
   end
 
-  # GET /events/new
   def new
     @event = Event.new
+    @event.starts_at = DateTime.now
+    @event.ends_at = DateTime.now+1.hour
+
+    add_breadcrumb t('actions.new')
   end
 
-  # GET /events/1/edit
   def edit
+    add_breadcrumb @event.title
+    add_breadcrumb t('actions.edit')
   end
 
-  # POST /events
-  # POST /events.json
   def create
     @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @event }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+        redirect_to @event, notice: t('actions.created')
+    else
+      render action: 'new'
     end
   end
 
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.update(event_params)
+        redirect_to @event, notice: t('actions.updated')
+    else
+      render action: 'edit'
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
-    end
+    redirect_to events_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :starts_at, :ends_at, :all_day)
+      params.require(:event).permit(:title, :description, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time)
     end
 end

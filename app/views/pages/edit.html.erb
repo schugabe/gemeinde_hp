@@ -1,5 +1,5 @@
-<h1><%= t('actions.edit') %></h1>
+<h2><%= t('actions.edit') %> <small><%= link_to t('actions.show'), @page %> </small></h2>
 
 <%= render 'form' %>
 
-<%= link_to t('actions.show'), @page %> | <%= link_to t('actions.back'), pages_path %>
+

@@ -1,78 +1,63 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
   authorize_actions_for Page
-  # GET /pages
-  # GET /pages.json
+
+  add_breadcrumb :index, :pages_path
+  
   def index
     @pages = Page.all
   end
 
-  # GET /pages/1
-  # GET /pages/1.json
   def show
+    if @page.nil?
+      redirect_to root_path, notice: "Seite nicht gefunden" and return
+    end
+    add_breadcrumb @page.title
   end
 
-  # GET /pages/new
   def new
     @page = Page.new
+    add_breadcrumb t('actions.new')
   end
 
-  # GET /pages/1/edit
   def edit
+    add_breadcrumb @page.title
+    add_breadcrumb t('actions.edit')
   end
 
-  # POST /pages
-  # POST /pages.json
   def create
     @page = Page.new(page_params)
 
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @page }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.save
+      redirect_to @page, notice: t('actions.created')
+    else
+      render action: 'new' 
     end
   end
 
-  # PATCH/PUT /pages/1
-  # PATCH/PUT /pages/1.json
   def update
-    respond_to do |format|
-      if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.update(page_params)
+      redirect_to @page, notice: t('actions.updated')
+    else
+      render action: 'edit'
     end
   end
 
-  # DELETE /pages/1
-  # DELETE /pages/1.json
   def destroy
     @page.destroy
-    respond_to do |format|
-      format.html { redirect_to pages_url }
-      format.json { head :no_content }
-    end
+    redirect_to pages_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      unless params[:permalink]
-        @page = Page.find(params[:id])
-      else
-        @page = Page.find_by_permalink(params[:permalink])
-      end
+  def set_page
+    unless params[:permalink]
+      @page = Page.find(params[:id])
+    else
+      @page = Page.find_by_permalink(params[:permalink])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def page_params
-      params.require(:page).permit(:title, :content, :permalink)
-    end
+  end
+  
+  def page_params
+    params.require(:page).permit(:title, :content, :permalink, :in_menu)
+  end
 end

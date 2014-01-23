@@ -4,13 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_filter :configure_permitted_parameters, if: :devise_controller?
-
+  helper_method :current_or_null_user
+    
   def current_or_null_user
     if current_user == nil
       User.new
     else
       current_user
     end
+  end
+  
+  def authority_forbidden(error)
+    Authority.logger.warn(error.message)
+    redirect_to request.referrer.presence || root_path, :alert => t('actions.not_authorized')
   end
   
 protected

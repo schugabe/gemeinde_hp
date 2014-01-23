@@ -29,6 +29,9 @@ en:
       back: Back
       actions: Actions
       new_page: New Page
+      not_authorized: 'You are not authorized to complete that action.'
+      created: Created
+      updated: Updated
   profile:
       Profile: profile
       edit: "Edit profile"
@@ -38,11 +41,19 @@ en:
   staff:
       manage: Manage
       pages: Pages
+      events: Events
   activerecord:
       models:
           page: Page
+          event: Event
       attributes:
           page:
               title: Title
               permalink: Permalink
               content: Content
+              in_menu: Visible in Menu
+          event:
+              Title: title
+              description: Description
+              starts_at_date: Starts at
+              ends_at_date: Ends at

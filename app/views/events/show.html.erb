@@ -1,7 +1,7 @@
 <h2><%= @event.title %></h2>
 <p><%=l @event.starts_at, :format => :long %> - <%=l @event.ends_at, :format => :long %></p>
 <p>
-  <%= @event.description %>
+  <%=raw @event.description %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> | <%= link_to 'Back', calendar_index_path %>
+<%= link_to t('actions.edit'), edit_event_path(@event) if current_or_null_user.can_update?(@event)%>

@@ -2,6 +2,25 @@
 
 de:
   devise:
+    sign_up: "Registrieren"
+    sign_in: "Anmelden"
+    forgot_password: 
+      forgot: "Passwort vergessen?"
+      send_instructions: "Anleitung um Passwort zurück zu setzen senden"
+      change: "Passwort ändern"
+      do_change: "Ändern"
+    confirmation:
+      resend: "Aktivierungsinformation erneut senden"
+      send_instructions: "Anfordern"
+    profile:
+        edit: "Bearbeiten"
+        update: "Bearbeiten"
+        password: "leer lassen um aktuelles Passwort nicht zu ändern"
+        current_password: "aktuelles Passwort eingeben um neues Passwort zu setzen"
+        cancel: "Profil löschen"
+        do_cancel: "Löschen"
+        cancel_confirmation: "Profil wirklich löschen?"
+        waiting: "Aktivierung ausständig: "
     confirmations:
       confirmed: "Vielen Dank für Deine Registrierung. Bitte melde dich jetzt an."
       confirmed_and_signed_in: "Vielen Dank für Deine Registrierung. Du bist jetzt angemeldet."
