@@ -53,7 +53,7 @@ class PagesController < ApplicationController
     unless params[:permalink]
       @page = Page.find(params[:id])
     else
-      @page = Page.find_by_permalink(params[:permalink])
+      @page = Page.find_by_permalink(params[:permalink].downcase)
     end
   end
   
