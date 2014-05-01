@@ -63,6 +63,11 @@ group :test do
   gem 'launchy'
 end
 
+group :development do
+  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-chruby', '~> 0.1.1'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
