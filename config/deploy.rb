@@ -8,7 +8,7 @@ set :chruby_ruby, 'ruby-2.1'
 set :linked_files, %w{config/database.yml .env config/unicorn.rb}
 set :keep_releases, 5
 
-set :unicorn_config_path, "#{release_path}/config/unicorn.rb"
+set :unicorn_config_path, "#{current_path}/config/unicorn.rb"
 
 namespace :deploy do
   desc 'Restart application'
