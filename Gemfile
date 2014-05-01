@@ -66,6 +66,7 @@ end
 group :development do
   gem 'capistrano-rails', '~> 1.1.0'
   gem 'capistrano-chruby', '~> 0.1.1'
+  gem 'capistrano-unicorn', :require => false
 end
 
 # Use ActiveModel has_secure_password
