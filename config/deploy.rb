@@ -4,6 +4,7 @@ lock '3.2.1'
 set :application, 'evang-thening.at'
 set :repo_url, 'https://github.com/schugabe/gemeinde_hp.git'
 
+set :chruby_ruby, 'ruby-2.1'
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
