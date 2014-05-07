@@ -77,17 +77,17 @@ GemeindeHp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  
-  config.action_mailer.default_url_options = { :host => 'http://thening.herokuapp.com' }
+
+  config.action_mailer.default_url_options = { :host => 'http://evang-thening.at' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
+    :address        => 'localhost',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
+    :user_name      => ENV['EMAIL_USERNAME'],
+    :password       => ENV['EMAIL_PASSWORD'],
+    :domain         => 'evang-thening.at',
     :enable_starttls_auto => true
   }
-  
+
 end
