@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap-wysihtml5/b3
+//= require bootstrap
+//= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/de-DE
 //= require turbolinks
-//= require bootstrap
 //= require fullcalendar
 //= require moment.min.js
 //= require_tree .
@@ -81,6 +81,23 @@ $(document).ready(function(){
             day: 'dddd d.M'
         }
 	});
+    
+    $(window).scroll(function(){
+        if($(this).scrollTop()>=$('.jumbotron').height()){
+            $('body').addClass('scrolling');
+        }
+        else {
+            $('body').removeClass('scrolling');
+        }
+        
+        if ($(this).scrollTop()>=$('.navbar-default').height()) {
+            $('body').addClass('scrolling-menu');
+        }
+        else {
+            $('body').removeClass('scrolling-menu');
+        }
+    });
+
 });
 
 $(document).on('page:load', function(){

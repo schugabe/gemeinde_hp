@@ -1,0 +1,27 @@
+$blue-color:                #4BBCF6;
+$green-color:               #98E466;
+$yellow-color:              darken(#FBEF69,10%);
+$red-color:                 #FA6666;
+$white-color:               #FFFFFF;
+$gray-color:                #6C8A99;
+
+$brand-primary:             $blue-color;
+$brand-success:             $green-color;
+$brand-info:                lighten($blue-color, 10%);
+$brand-warning:             $yellow-color;
+$brand-danger:              $red-color;
+
+$top-color-bg:              lighten(#e0ebe8, 1%);
+$top-color-text:            lighten(#45b29a, 1%);
+$jumbotron-bg:              $top-color-bg;
+$jumbotron-color:           $top-color-text;
+
+//$navbar-height:                     72px;
+$navbar-default-bg:                 $top-color-bg;
+$navbar-default-link-color:         $top-color-text;
+$navbar-default-link-hover-color:   lighten($top-color-text, 10%);
+$navbar-default-link-active-color:  #21564b;
+$navbar-default-border:             transparent;
+
+$font-family-sans-serif:    "dosisregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size-base:             18px;

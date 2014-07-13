@@ -12,35 +12,39 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <%= render 'layouts/navigation' %>
         </div>
-    </div>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Kirche im Feld</h1>
-            <p>Evangelische Kirche Thening</p>
+    </nav>
+    
+    <% if content_for? :jumbotron%>
+        <div class="jumbotron">
+            <div class="container">
+                <%= content_for :jumbotron %>
+            </div>
         </div>
-    </div>
+    <% end %>
 
-    <div class="container">
+    <div class="container content">
         <!-- Example row of columns -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
                 <%= render 'layouts/messages' %>
                 <%= render_breadcrumbs %>
                 <%= yield %>
             </div>
         </div>
-
-        <hr>
-
-        <footer>
-            <p>&copy; Evangelische Gemeinde Thening 2014 | <a href="/page/impressum">Impressum</a></p>
-        </footer>
-    </div> <!-- /container -->
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>&copy; Evangelische Gemeinde Thening 2014 | <a href="/page/impressum">Impressum</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

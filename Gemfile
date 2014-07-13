@@ -3,10 +3,7 @@ source 'https://rubygems.org'
 gem 'dotenv-rails', :groups => [:production, :development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1'
-
-# Use sqlite3 as the database for Active Record
-
+gem 'rails', '4.1.4'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -44,7 +41,6 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'sanitize-rails', :require => 'sanitize/rails'
 gem 'quiet_assets', :group => :development
 
-
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
@@ -53,9 +49,9 @@ end
 
 gem 'unicorn'
 
-group :production do
-  gem 'pg'
-end
+#group :production do
+#  gem 'pg'
+#end
 
 group :test do
   gem 'capybara'

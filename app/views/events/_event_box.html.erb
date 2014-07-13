@@ -1,0 +1,9 @@
+<% text_length = 160 if text_length.nil?%>
+<div class="event-box">
+    <h3><%= event.title %></h3>
+    <p class="date"><%= event_duration(event) %> <%= state_label(event) %></p>
+    <p>
+      <%=truncate strip_tags(event.description), length: text_length %>
+    </p>
+    <p class="links"><%= link_to "Details anzeigen", event %></p>
+</div>

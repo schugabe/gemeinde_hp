@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+<rect x="-26" y="-9" fill="#E0EBE8" width="826" height="609"/>
+<ellipse fill="#0F9F49" cx="218.951" cy="596.639" rx="218.443" ry="84.016"/>
+<ellipse fill="#0F9F49" cx="399.951" cy="552.139" rx="218.443" ry="74.516"/>
+<ellipse fill="#0F9F49" cx="577.951" cy="596.639" rx="218.443" ry="84.016"/>
+<polygon fill="#FFFCDF" stroke="#171E1C" stroke-miterlimit="10" points="420.5,295.45 420.5,198.5 420.666,198.5 392.083,82.253 
+	363.5,198 363.5,295.45 299.5,360 299.5,507.5 364,507.5 421,507.5 484.5,507.5 484.5,360.5 485.5,360.5 "/>
+<g>
+	<rect x="382" y="465" width="23" height="42"/>
+	<ellipse cx="393.484" cy="465.25" rx="11.516" ry="6.25"/>
+</g>
+<g>
+	<rect x="385" y="379" width="16" height="35"/>
+	<ellipse cx="392.817" cy="379.208" rx="7.849" ry="5.209"/>
+</g>
+<g>
+	<g>
+		<rect x="392" y="245" width="12" height="35"/>
+		<ellipse cx="397.725" cy="245.208" rx="5.844" ry="5.209"/>
+	</g>
+	<g>
+		<rect x="380" y="245" width="12" height="35"/>
+		<ellipse cx="385.812" cy="245.208" rx="5.844" ry="5.209"/>
+	</g>
+</g>
+<circle cx="392.084" cy="209.417" r="9.583"/>
+</svg>

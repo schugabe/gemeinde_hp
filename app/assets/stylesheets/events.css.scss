@@ -1,0 +1,21 @@
+@import "variables";
+
+.event-box {
+    > h2 {
+        
+    }
+    > .date {
+        font-size: 0.8em;
+    }
+    
+    > .links {
+        font-size: 0.8em;
+    }
+}
+
+.event-box-normal {
+    @media (min-width: $screen-sm-min) {
+        min-height: 280px;
+    }
+    
+}

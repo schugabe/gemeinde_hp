@@ -34,5 +34,9 @@ module GemeindeHp
     config.i18n.default_locale = :de
     
     config.autoload_paths += %W(#{config.root}/lib)
+    
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    
+    config.action_view.sanitized_allowed_tags = 'br', 'b', 'i', 'u', 'blockqoute', 'a', 'ul', 'li', 'ol'
   end
 end

@@ -10,7 +10,122 @@
  *
  *= require_self
  *= require fullcalendar
- *= require_tree .
- *= require bootstrap-wysihtml5/b3
+ *= require fonts
+ *= require bootstrap-datetimepicker.min
+ *= require bootstrap-wysihtml5
  */
 
+@import "variables";
+@import "bootstrap";
+@import "events";
+
+body {
+    padding-top: 30px;
+    
+    @media (min-width: $grid-float-breakpoint) {
+        padding-top: 124px;
+    }
+    
+    &.scrolling-menu {
+        @media (min-width: $grid-float-breakpoint) {
+            padding-top: 52px;
+            .navbar-default {
+                padding: 0 !important;
+            }
+        }
+    }
+    
+    &.scrolling {
+        .navbar-default {
+            @include box-shadow(0px 3px 18px 0px rgba(0,0,0,0.75));
+        }
+        
+        .cloud {
+            top: -100px !important;
+        }
+    }
+}
+
+
+.navbar-default {
+    @include transition(padding .2s ease-in-out);
+    @include transition(box-shadow .2s ease-in-out);
+    
+    margin-bottom: 0;
+    @media (min-width: $grid-float-breakpoint) {
+        padding: 2em 0;
+        .navbar-nav > li {
+            > a {
+                @media (min-width: $screen-md-min) {
+                    font-size: 120%;
+                    margin: 0 0 0 2em;
+                }
+            }
+            
+            > ul > li > a {
+                font-size: 120%;
+            }
+        }
+    }
+    @media (max-width: $grid-float-breakpoint-max) {
+        @include box-shadow(0px 3px 18px 0px rgba(0,0,0,0.75));
+    }
+}
+
+.jumbotron {
+    padding-bottom: 0;
+    .jumbotron-content {
+        z-index: 3;
+        img {
+            
+        }
+        p, h1 {
+            text-align: center;
+        }
+    }
+    
+    .cloud {
+        position: fixed;
+        background: image-url('cloud.svg') top left no-repeat;
+        width: 150px;
+        height: 45px;
+        transition: all 0.8s ease-in-out;
+        z-index: 2;
+    }
+    
+    
+    .left-cloud {
+        left: 2em;
+        top: 7em;
+    }
+    
+    .right-cloud {
+        right: 2em;
+        top: 18em;
+        @media (min-width: $screen-sm-min) {
+            top: 9em;
+        }
+    }
+    
+    .kirche {
+        background: image-url('kirche.svg') top left no-repeat;
+        z-index: 1;
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: cover;
+        margin: 0 auto;
+        height: 300px;
+    }
+}
+
+.content {
+    margin-top: 30px;
+}
+
+footer {
+    margin-top: 30px;
+    background-color: $top-color-bg;
+    color: $top-color-text;
+    padding-top: 42px;
+    padding-bottom: 42px;
+}
