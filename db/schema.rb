@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123131700) do
+ActiveRecord::Schema.define(version: 20140713195414) do
+
+  create_table "attachments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.integer  "event_id"
+  end
+
+  add_index "attachments", ["event_id"], name: "index_attachments_on_event_id"
 
   create_table "events", force: true do |t|
     t.string   "title"

@@ -13,6 +13,7 @@
  *= require fonts
  *= require bootstrap-datetimepicker.min
  *= require bootstrap-wysihtml5
+ *= require rails_bootstrap_forms
  */
 
 @import "variables";
@@ -21,7 +22,7 @@
 
 body {
     padding-top: 30px;
-    
+    @include transition(padding-top .2s ease-in-out);
     @media (min-width: $grid-float-breakpoint) {
         padding-top: 124px;
     }
@@ -48,12 +49,13 @@ body {
 
 
 .navbar-default {
-    @include transition(padding .2s ease-in-out);
+    
     @include transition(box-shadow .2s ease-in-out);
     
     margin-bottom: 0;
     @media (min-width: $grid-float-breakpoint) {
         padding: 2em 0;
+        @include transition(padding .2s ease-in-out);
         .navbar-nav > li {
             > a {
                 @media (min-width: $screen-md-min) {
@@ -114,7 +116,7 @@ body {
         background-position: center center;
         background-size: cover;
         margin: 0 auto;
-        height: 300px;
+        height: 200px;
     }
 }
 

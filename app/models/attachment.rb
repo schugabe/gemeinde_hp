@@ -1,28 +1,20 @@
-class Event < ActiveRecord::Base
-  scope :before, ->(end_time) { where("ends_at < ?", Event.format_date(end_time)) }
-  scope :after, ->(start_time) { where("starts_at > ?", Event.format_date(start_time)) }
-  scope :upcoming, -> { where("ends_at > ?", DateTime.now).order("starts_at asc") }
+class Attachment < ActiveRecord::Base
+  has_attached_file :upload
+  validates_attachment_content_type :upload, :content_type => /\Aimage\/.*\Z/
   
-  validate :check_dates
+  belongs_to :event
   
-  validates :title, :description, :starts_at, :ends_at, presence: true
-  
-  include Authority::Abilities
-  resourcify
-  sanitizes :description
-  
-  has_many :attachments
   
   def self.format_date(date_time)
-    Time.at(date_time.to_i).to_formatted_s(:db)
+    Time.at(date_time.to_i).to_formatted_s(:db) if date_time
   end
   
   def starts_at_date
-    starts_at.strftime('%d.%m.%Y')
+    starts_at.strftime('%d.%m.%Y') if starts_at
   end
   
   def starts_at_date=(date)
-    self.starts_at = Event.get_date(starts_at,date)
+    self.starts_at = Attachment.get_date(starts_at,date)
   end
   
   def starts_at_time
@@ -30,7 +22,7 @@ class Event < ActiveRecord::Base
   end
   
   def starts_at_time=(time)
-    self.starts_at = Event.get_time(starts_at,time)
+    self.starts_at = Attachment.get_time(starts_at,time)
   end
   
   def ends_at_date
@@ -38,7 +30,7 @@ class Event < ActiveRecord::Base
   end
   
   def ends_at_date=(date)
-    self.ends_at = Event.get_date(ends_at,date)
+    self.ends_at = Attachment.get_date(ends_at,date)
   end
   
   def ends_at_time

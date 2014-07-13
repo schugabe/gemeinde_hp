@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @attachment.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @attachment.description %>
+</p>
+
+<p>
+  <strong>Starts at:</strong>
+  <%= @attachment.starts_at %>
+</p>
+
+<p>
+  <strong>Ends at:</strong>
+  <%= @attachment.ends_at %>
+</p>
+
+<%= link_to 'Edit', edit_attachment_path(@attachment) %> |
+<%= link_to 'Back', attachments_path %>

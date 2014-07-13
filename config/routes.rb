@@ -1,7 +1,7 @@
 GemeindeHp::Application.routes.draw do
-  
-  
-  resources :events
+  resources :events do
+    resources :attachments
+  end
   resources :pages
 
   get "home/index"

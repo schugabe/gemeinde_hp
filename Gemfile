@@ -8,7 +8,7 @@ gem 'rails', '4.1.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.0'
-gem 'bootstrap_form', '~> 2.0'
+gem 'bootstrap_form', '~> 2.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -39,7 +39,8 @@ gem 'authority', '>= 2.9.0'
 gem 'rolify', github: 'EppO/rolify'
 gem 'bootstrap-wysihtml5-rails'
 gem 'sanitize-rails', :require => 'sanitize/rails'
-gem 'quiet_assets', :group => :development
+gem "paperclip", "~> 4.1"
+gem "paperclip-ffmpeg"
 
 group :development, :test do
   gem 'factory_girl_rails'
@@ -65,6 +66,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.0'
   gem 'capistrano-chruby', '~> 0.1.1'
   gem 'capistrano3-unicorn'
+  gem 'quiet_assets'
 end
 
 # Use debugger
