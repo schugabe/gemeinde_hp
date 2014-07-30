@@ -1,0 +1,9 @@
+<figure>
+    <%= image_tag image.upload.url(image_size), class: "img-responsive", alt: image.title %>
+    <figcaption>
+        <%= image.description %>
+        <% if current_or_null_user.can_update?(image) %>
+            <p class="links"><%= link_to "Bearbeiten", edit_event_attachment_path(image.event,image) %></p>
+        <% end %>
+    </figcaption>
+</figure>

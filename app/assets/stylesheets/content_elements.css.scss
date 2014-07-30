@@ -1,0 +1,14 @@
+@import "variables";
+
+.content {
+    margin-top: 30px;
+}
+
+figure {
+    > figcaption {
+        background-color: $gray-color;
+        > .links {
+            font-size: 0.8em;
+        }
+    }
+}

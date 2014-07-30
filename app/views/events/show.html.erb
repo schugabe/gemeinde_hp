@@ -1,10 +1,26 @@
 <div class="event-box">
     <h2><%= @event.title %></h2>
     <p class="date"><%= event_duration(@event) %></p>
-    <p>
-        <%= sanitize @event.description %>
-    </p>
-    <p class="links">
-        <%= link_to t('actions.edit'), edit_event_path(@event) if current_or_null_user.can_update?(@event)%>
-    </p>
+    
+    <div class="row">
+        <% if @first_image %>
+            <%= render partial: "attachments/figure", object: @first_image, layout: "layouts/col_4", as: "image", locals: {image_size: "large"} %>
+        <% end %>
+        <div class="col-md-8">
+            <p>
+                <%= sanitize @event.description %>
+            </p>
+        </div>
+    </div>
+    
+    <% if @images.count > 0 %>
+        <div class="row">
+            <%= render partial: "attachments/figure", collection: @images, layout: "layouts/col_4", as: "image", locals: {image_size: "medium"} %>
+        </div>
+    <% end %>
+    <% if current_or_null_user.can_update?(@event) %>
+        <p class="links">
+            <%= link_to t('actions.edit'), edit_event_path(@event) %> | <%= link_to "Anhang hinzufügen", new_event_attachment_path(@event) %>
+        </p>
+    <% end %>
 </div>

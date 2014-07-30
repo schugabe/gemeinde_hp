@@ -14,6 +14,10 @@ class EventsController < ApplicationController
       redirect_to root_path, notice: "Veranstaltung nicht gefunden" and return
     end
     add_breadcrumb @event.title
+    
+    @first_image = @event.attachments.where("upload_content_type like 'image%'").first
+    @images = @event.attachments.where("upload_content_type like 'image%' and id <> ?", @first_image.id)
+    @remaining_files = @event.attachments.where("upload_content_type not like 'image%'")
   end
 
   def new

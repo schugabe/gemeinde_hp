@@ -83,7 +83,7 @@ $(document).ready(function(){
 	});
     
     $(window).scroll(function(){
-        if($(this).scrollTop()>=$('.jumbotron').height()){
+        if($(this).scrollTop()>=($('.jumbotron').height()+$('.navbar-fixed-top').height())){
             $('body').addClass('scrolling');
         }
         else {

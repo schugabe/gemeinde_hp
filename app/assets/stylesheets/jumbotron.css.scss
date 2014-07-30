@@ -1,0 +1,47 @@
+@import "variables";
+
+.jumbotron {
+    padding-bottom: 0;
+    .jumbotron-content {
+        z-index: 3;
+        img {
+            
+        }
+        p, h1 {
+            text-align: center;
+        }
+    }
+    
+    .cloud {
+        position: fixed;
+        background: image-url('cloud.svg') top left no-repeat;
+        width: 150px;
+        height: 45px;
+        transition: all 0.8s ease-in-out;
+        z-index: 2;
+    }
+    
+    
+    .left-cloud {
+        left: 2em;
+        top: 7em;
+    }
+    
+    .right-cloud {
+        right: 2em;
+        top: 18em;
+        @media (min-width: $screen-sm-min) {
+            top: 9em;
+        }
+    }
+    
+    .kirche {
+        background: image-url('kirche.svg') top left no-repeat;
+        z-index: 1;
+        background-attachment: fixed;
+        background-size: auto 600px;
+        background-position: center top;
+        margin: 0 auto;
+        height: 200px;
+    }
+}

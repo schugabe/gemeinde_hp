@@ -1,6 +1,6 @@
-<h1>Editing attachment</h1>
+<h1>Anhang bearbeiten</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @attachment %> |
-<%= link_to 'Back', attachments_path %>
+<%= link_to 'Anhang anzeigen', [@event, @attachment] %> |
+<%= link_to 'Zur Veranstaltung', event_attachments_path(@event) %>

@@ -5,7 +5,7 @@ class AttachmentsController < ApplicationController
   # GET /attachments
   # GET /attachments.json
   def index
-    @attachments = @event.attachments
+    redirect_to @event
   end
 
   # GET /attachments/1
@@ -29,8 +29,8 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @attachment }
+        format.html { redirect_to [@event, @attachment], notice: 'Attachment was successfully created.' }
+        format.json { render action: 'show', status: :created, location: [@event, @attachment] }
       else
         format.html { render action: 'new' }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class AttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully updated.' }
+        format.html { redirect_to [@event, @attachment], notice: 'Attachment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to attachments_url }
+      format.html { redirect_to event_attachments_url(@event) }
       format.json { head :no_content }
     end
   end
@@ -69,11 +69,11 @@ class AttachmentsController < ApplicationController
     end
     
     def set_attachment
-      @attachment = @event.attachements.find(params[:id])
+      @attachment = @event.attachments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachment_params
-      params.require(:attachment).permit(:title, :description, :starts_at, :ends_at)
+      params.require(:attachment).permit(:title, :description, :starts_at, :ends_at, :upload)
     end
 end
