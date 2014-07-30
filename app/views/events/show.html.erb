@@ -13,7 +13,7 @@
         </div>
     </div>
     
-    <% if @images.count > 0 %>
+    <% if @images && @images.count > 0 %>
         <div class="row">
             <%= render partial: "attachments/figure", collection: @images, layout: "layouts/col_4", as: "image", locals: {image_size: "medium"} %>
         </div>

@@ -126,6 +126,8 @@ GEM
     jquery-turbolinks (2.0.2)
       railties (>= 3.1.0)
       turbolinks
+    jquery-ui-rails (5.0.0)
+      railties (>= 3.2.16)
     json (1.8.1)
     kgio (2.9.2)
     launchy (2.4.2)
@@ -176,6 +178,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    ranked-model (0.4.0)
+      activerecord (>= 3.1.12)
     rdoc (4.1.1)
       json (~> 1.4)
     ref (1.0.5)
@@ -270,11 +274,13 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   launchy
   paperclip (~> 4.1)
   paperclip-ffmpeg
   quiet_assets
   rails (= 4.1.4)
+  ranked-model
   rolify!
   rspec-rails
   sanitize-rails

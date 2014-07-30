@@ -1,0 +1,19 @@
+<%= bootstrap_form_for(@team, style: :horizontal, left: "col-sm-2", right: "col-sm-4") do |f| %>
+  <% if @team.errors.any? %>
+    <div class="alert alert-warning">
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+    <%= f.text_field :name %>
+ 
+    <%= f.text_area :description %>
+  <%= f.form_group do %>
+    <%= f.primary t('actions.save') %>
+  <% end %>
+<% end %>

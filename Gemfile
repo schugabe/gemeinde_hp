@@ -21,6 +21,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'jquery-turbolinks'
@@ -41,6 +42,7 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'sanitize-rails', :require => 'sanitize/rails'
 gem "paperclip", "~> 4.1"
 gem "paperclip-ffmpeg"
+gem 'ranked-model'
 
 group :development, :test do
   gem 'factory_girl_rails'

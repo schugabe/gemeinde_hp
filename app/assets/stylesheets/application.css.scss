@@ -51,7 +51,9 @@ body {
     }
 }
 
-
-
-
+#sortable {
+  tr.item {
+    cursor: row-resize;
+  }
+}
 
