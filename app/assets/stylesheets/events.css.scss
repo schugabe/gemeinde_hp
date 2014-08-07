@@ -1,8 +1,9 @@
 @import "variables";
 
 .event-box {
+    margin-bottom: 30px;
     > h2 {
-        
+        margin-top: 0;
     }
     > .date {
         font-size: 0.8em;
@@ -13,8 +14,25 @@
     }
 }
 
-.event-box-normal {
-    @media (min-width: $screen-sm-min) {
-        min-height: 280px;
+.event-box-large {
+    margin-bottom: 30px;
+    .preview-image-container {
+        position: relative;
+        > .event-text {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            background-color: rgba($blue-color, 0.6);
+            width: 80%;
+            padding: 10px;
+            > h2 {
+                color: white;
+                margin-top: 0;
+            }
+            > p {
+                color: white;
+                margin-bottom: 0;
+            }
+        }
     }
 }

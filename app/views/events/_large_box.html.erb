@@ -1,3 +1,18 @@
 <div class="event-box-large">
-    <%= yield %>
+    <% if image = event.attachments.where("upload_content_type like 'image%'").first %>
+    <div class="preview-image-container">
+        <%= image_tag image.upload.url(:large), class: "img-responsive", alt: image.title %>
+        <div class="event-text">
+    <% else %>
+        <div>
+        <div>
+    <% end %>
+            <h2><%= event.title %></h2>
+            <p class="date"><%= event_duration(event) %> <%= state_label(event) %></p>
+        </div>
+    </div>
+    <p>
+        <%=truncate strip_tags(event.description), length: text_length %>
+    </p>
+    <p class="links"><%= link_to "Details anzeigen", event %></p>
 </div>

@@ -44,6 +44,7 @@ gem "paperclip", "~> 4.1"
 gem "paperclip-ffmpeg"
 gem 'ranked-model'
 gem 'breadcrumbs_on_rails'
+gem 'jplayer-rails'
 
 group :development, :test do
   gem 'factory_girl_rails'
