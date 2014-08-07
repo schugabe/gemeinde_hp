@@ -1,7 +1,8 @@
 @import "variables";
 
 .jumbotron {
-    padding-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 20px;
     .jumbotron-content {
         z-index: 3;
         img {
@@ -35,13 +36,20 @@
         }
     }
     
-    .kirche {
-        background: image-url('kirche.svg') top left no-repeat;
-        z-index: 1;
-        background-attachment: fixed;
-        background-size: auto 600px;
-        background-position: center top;
-        margin: 0 auto;
-        height: 200px;
+    .carousel-container {
+        position: relative;
+        > .overlay {
+            > h1 {
+                margin-top:0;
+            }
+            background-color: rgba(white, 0.4);
+            text-shadow: 0px 4px 3px rgba(black,0.4),
+                         0px 8px 13px rgba(black,0.1),
+                         0px 18px 23px rgba(black,0.1);
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            margin-top: -77px;
+        }
     }
 }

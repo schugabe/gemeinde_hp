@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   
   before_filter :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_or_null_user
+  add_breadcrumb "Home", :root_path
     
   def current_or_null_user
     if current_user == nil
