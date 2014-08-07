@@ -1,4 +1,4 @@
-<%= bootstrap_form_for([@team,@person], style: :horizontal, left: "col-sm-2", right: "col-sm-4", :html => { :multipart => true }) do |f| %>
+<%= bootstrap_form_for([@team,@person], layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4", :html => { :multipart => true }) do |f| %>
   <% if @person.errors.any? %>
     <div class="alert alert-warning">
       <ul>

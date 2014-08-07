@@ -1,12 +1,4 @@
 module ApplicationHelper
-  def render_breadcrumbs(divider = '/', &block)
-    content = render :partial => 'layouts/breadcrumbs', :layout => false, :locals => { :divider => divider }
-    if block_given?
-      capture(content, &block)
-    else
-      content
-    end
-  end
   
   def event_duration(event)
     duration = l(event.starts_at, :format => :long)
@@ -36,4 +28,13 @@ module ApplicationHelper
       "<span class=\"label label-#{type}\">#{text}</span>".html_safe unless text.blank?
     end
   end
+  
+  def link_btn(body, url, style="btn-default" )
+    link_to body, url, class:"btn #{style}"
+  end
+  
+  def link_btn_destroy(body, url)
+    link_to body, url, method: :delete, data: { confirm: 'Wirklich löschen?' }, class:"btn btn-danger"
+  end
+  
 end

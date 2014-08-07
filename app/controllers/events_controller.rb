@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   authorize_actions_for Event
   
-  add_breadcrumb :index, :calendar_index_path
+  add_breadcrumb I18n.t('breadcrumbs.calendar.index'), :calendar_index_path
   
   def index
     @events = Event.order("starts_at desc")
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb @event.title
+    add_breadcrumb @event.title, @event
     add_breadcrumb t('actions.edit')
   end
 

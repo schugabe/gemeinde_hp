@@ -44,6 +44,7 @@ GEM
     bootstrap-wysihtml5-rails (0.3.2.100)
       railties (>= 3.0)
     bootstrap_form (2.1.1)
+    breadcrumbs_on_rails (2.3.0)
     builder (3.2.2)
     capistrano (3.2.1)
       i18n
@@ -260,6 +261,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.0)
   bootstrap-wysihtml5-rails
   bootstrap_form (~> 2.1)
+  breadcrumbs_on_rails
   capistrano-chruby (~> 0.1.1)
   capistrano-rails (~> 1.1.0)
   capistrano3-unicorn

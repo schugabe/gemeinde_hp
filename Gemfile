@@ -43,6 +43,7 @@ gem 'sanitize-rails', :require => 'sanitize/rails'
 gem "paperclip", "~> 4.1"
 gem "paperclip-ffmpeg"
 gem 'ranked-model'
+gem 'breadcrumbs_on_rails'
 
 group :development, :test do
   gem 'factory_girl_rails'

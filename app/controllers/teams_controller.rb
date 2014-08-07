@@ -1,24 +1,32 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-
+  authorize_actions_for Team
   # GET /teams
   # GET /teams.json
   def index
+    add_breadcrumb "Teams", :teams_path
     @teams = Team.all
   end
 
   # GET /teams/1
   # GET /teams/1.json
   def show
+    add_breadcrumb "Teams"
+    add_breadcrumb @team.name, @team
   end
 
   # GET /teams/new
   def new
     @team = Team.new
+    add_breadcrumb "Teams", :teams_path
+    add_breadcrumb "Neues Team"
   end
 
   # GET /teams/1/edit
   def edit
+    add_breadcrumb "Teams", :teams_path
+    add_breadcrumb @team.name, @team
+    add_breadcrumb "Bearbeiten"
   end
 
   # POST /teams

@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
   authorize_actions_for Page
 
-  add_breadcrumb :index, :pages_path
+  add_breadcrumb I18n.t('breadcrumbs.pages.index'), :pages_path
   
   def index
     @pages = Page.all
@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   end
 
   def edit
-    add_breadcrumb @page.title
+    add_breadcrumb @page.title, @page
     add_breadcrumb t('actions.edit')
   end
 

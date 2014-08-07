@@ -1,4 +1,4 @@
-<%%= bootstrap_form_for(@<%= singular_table_name %>, style: :horizontal, left: "col-sm-2", right: "col-sm-4") do |f| %>
+<%%= bootstrap_form_for(@<%= singular_table_name %>, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f| %>
   <%% if @<%= singular_table_name %>.errors.any? %>
     <div class="alert alert-warning">
       <ul>

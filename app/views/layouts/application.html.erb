@@ -31,7 +31,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <%= render 'layouts/messages' %>
-                <%= render_breadcrumbs %>
+                <ol class="breadcrumb">
+                    <%= render_breadcrumbs :tag => :li, :separator => "" %>
+                  </ol>
                 <%= yield %>
             </div>
         </div>

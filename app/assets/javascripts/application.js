@@ -102,5 +102,5 @@ $(document).ready(function(){
 });
 
 $(document).on('page:load', function(){
-window['rangy'].initialized = false;
+    window['rangy'].initialized = false;
 });

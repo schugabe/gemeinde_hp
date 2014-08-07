@@ -1,11 +1,8 @@
 <h1><%= @team.name %></h2>
-<p>
+<p class="lead">
   <%= @team.description %>
 </p>
 
 <div class="row">
-    <%= render @team.persons %>
+    <%= render @team.persons.rank(:row_order) %>
 </div>
-
-
-<%= link_to 'Edit', edit_team_path(@team) %> | <%= link_to 'Mitglieder bearbeiten', team_people_path(@team) %> | <%= link_to 'Back', teams_path %>

@@ -1,13 +1,15 @@
-<div class="col-sm-6">
-    <div class="row">
-        <div class="col-sm-3"><%= image_tag person.avatar.url(:medium), class:"img-responsive" %></div>
-        <div class="col-sm-9">
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+        <%= image_tag person.avatar.url(:large), class:"img-responsive" %>
+        <div class="caption">
             <h2><%= person.name %> <small><%= person.position %></small></h2>
             <p>
                 <%= person.about %>
-                <%= mail_to person.contact, "Kontakt" %>
+                <% unless person.contact.nil?  || person.contact.blank? %>
+                    <br>
+                    <%= mail_to person.contact, "Kontakt" %>
+                <% end %>
             </p>
         </div>
     </div>
-    
 </div>

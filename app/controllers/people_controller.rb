@@ -1,19 +1,27 @@
 class PeopleController < ApplicationController
   before_action :set_team
   before_action :set_person, only: [:show, :edit, :update, :destroy, :sort]
-
+  add_breadcrumb "Teams", :teams_path
+  authorize_actions_for Person
+  
   def index
-    @people = @team.persons.all
+    add_breadcrumb @team.name, :team_people_path
+    @people = @team.persons.rank(:row_order)
   end
 
   def show
+    redirect_to @team
   end
 
   def new
     @person = @team.persons.build
+    add_breadcrumb @team.name, :team_people_path
+    add_breadcrumb "Neue Person"
   end
 
   def edit
+    add_breadcrumb @team.name, :team_people_path
+    add_breadcrumb "bearbeiten"
   end
 
   def create
@@ -39,7 +47,7 @@ class PeopleController < ApplicationController
   end
   
   def sort
-    @person.attributes = params[:thing]
+    @person.row_order_position = person_params[:row_order_position]
     @person.save
     render nothing: true
   end
@@ -55,6 +63,6 @@ private
   end
 
   def person_params
-    params.require(:person).permit(:name, :position, :about, :contact, :group_id, :avatar)
+    params.require(:person).permit(:name, :position, :about, :contact, :group_id, :avatar, :row_order_position)
   end
 end
