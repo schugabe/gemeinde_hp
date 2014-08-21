@@ -1,0 +1,25 @@
+<%= bootstrap_form_for(@magazine, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4", html: {multipart: true}) do |f| %>
+    <% if @magazine.errors.any? %>
+        <div class="alert alert-warning">
+            <ul>
+                <% @magazine.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= f.text_field :title %>
+    <%= f.number_field :issue, min: 1 %>
+    <%= f.number_field :year, value: Time.new.year, min: 2000 %>
+    
+    <div class="form-group">
+        <%= f.label :pictures, :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-4">
+            <%= file_field_tag "magazinepages[]", type: :file, multiple: true, class: "form-control" %>
+        </div>
+    </div>
+        
+    <%= f.form_group do %>
+        <%= f.primary t('actions.save') %>
+    <% end %>
+<% end %>

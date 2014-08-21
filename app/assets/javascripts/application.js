@@ -99,8 +99,22 @@ $(document).ready(function(){
         }
     });
 
+	$('#magazine').turn({
+	    display: 'double',
+		acceleration: true,
+		gradients: !$.isTouch,
+		elevation:50
+	});
 });
 
 $(document).on('page:load', function(){
     window['rangy'].initialized = false;
+});
+
+$(window).bind('keydown', function(e){
+	if (e.keyCode==37)
+		$('#magazine').turn('previous');
+	else if (e.keyCode==39)
+		$('#magazine').turn('next');
+		
 });

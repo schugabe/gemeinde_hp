@@ -11,8 +11,8 @@ $brand-info:                lighten($blue-color, 10%);
 $brand-warning:             $yellow-color;
 $brand-danger:              $red-color;
 
-$top-color-bg:              lighten(#e0ebe8, 1%);
-$top-color-text:            lighten(#45b29a, 1%);
+$top-color-bg:              lighten($blue-color, 10%); //lighten(#e0ebe8, 1%);
+$top-color-text:            white; //lighten(#45b29a, 1%);
 $jumbotron-bg:              $top-color-bg;
 $jumbotron-color:           $top-color-text;
 
