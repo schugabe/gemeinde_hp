@@ -1,9 +1,7 @@
 <h1><%= @magazine.title %> <small><%= @magazine.issue %>-<%= @magazine.year %></small></h1>
 
-<div id="magazine">
-    <% @magazine.magazinepages.each do |page| %>
-        <div class="col-sm-12"><%=image_tag page.upload.url(:large), class: "img-responsive" %></div>
-    <% end %>
+<div id="magazine" data-pdf="<%= @magazine.pdf.url %>">
+    
 </div>
 <%= link_to 'Edit', edit_magazine_path(@magazine) %> |
 <%= link_to 'Back', magazines_path %>

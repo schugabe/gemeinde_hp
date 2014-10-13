@@ -27,14 +27,7 @@ class MagazinesController < ApplicationController
     @magazine = Magazine.new(magazine_params)
 
     respond_to do |format|
-      if @magazine.save
-        
-        if params[:magazinepages]
-          params[:magazinepages].each { |page|
-            @magazine.magazinepages.create(upload: page)
-          }
-        end
-        
+      if @magazine.save    
         format.html { redirect_to @magazine, notice: 'Magazine was successfully created.' }
         format.json { render action: 'show', status: :created, location: @magazine }
       else
@@ -76,6 +69,6 @@ class MagazinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def magazine_params
-      params.require(:magazine).permit(:issue, :year, :title, :magazinepages)
+      params.require(:magazine).permit(:issue, :year, :title, :pdf)
     end
 end

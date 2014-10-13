@@ -15,7 +15,7 @@
     <div class="form-group">
         <%= f.label :pictures, :class => 'col-sm-2 control-label' %>
         <div class="col-sm-4">
-            <%= file_field_tag "magazinepages[]", type: :file, multiple: true, class: "form-control" %>
+            <%= f.file_field :pdf, class: "form-control" %>
         </div>
     </div>
         

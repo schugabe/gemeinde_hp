@@ -14,12 +14,13 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/de-DE
 //= require turbolinks
 //= require fullcalendar
 //= require moment.min.js
+//= require magazine/three66.js
 //= require_tree .
 
 
@@ -99,22 +100,14 @@ $(document).ready(function(){
         }
     });
 
-	$('#magazine').turn({
-	    display: 'double',
-		acceleration: true,
-		gradients: !$.isTouch,
-		elevation:50
-	});
-});
+    $('#magazine').flipBook({ pdfUrl: $(this).data("pdf"), assets : {
+			preloader: "<%= image_path 'flipbook/preloader.jpg' %>",
+			left: "<%= image_path 'flipbook/left.png' %>",
+			overlay: "<%= image_path 'flipbook/overlay.png' %>",
+			flipMp3: "<%= asset_path 'flipbook/turnPage.mp3' %>",
+    }}); 
+);
 
 $(document).on('page:load', function(){
     window['rangy'].initialized = false;
-});
-
-$(window).bind('keydown', function(e){
-	if (e.keyCode==37)
-		$('#magazine').turn('previous');
-	else if (e.keyCode==39)
-		$('#magazine').turn('next');
-		
 });
