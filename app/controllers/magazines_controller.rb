@@ -1,6 +1,10 @@
 class MagazinesController < ApplicationController
-  before_action :set_magazine, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_magazine, only: [:show, :edit, :update, :destroy, :readpdf]
+  layout :resolve_layout
+  authorize_actions_for Magazine, actions: { readpdf: 'read' }
+  
+  add_breadcrumb "Gemeinde Rundbrief", :magazines_path
+  
   # GET /magazines
   # GET /magazines.json
   def index
@@ -60,6 +64,11 @@ class MagazinesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def readpdf
+    add_breadcrumb "#{@magazine.issue}-#{@magazine.year}", @magazine
+    add_breadcrumb "Lesen"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,4 +80,14 @@ class MagazinesController < ApplicationController
     def magazine_params
       params.require(:magazine).permit(:issue, :year, :title, :pdf)
     end
+    
+    def resolve_layout
+      case action_name
+      when "readpdf"
+        "pdfreader"
+      else
+        "application"
+      end
+    end
+      
 end

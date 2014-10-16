@@ -1,5 +1,9 @@
 GemeindeHp::Application.routes.draw do
-  resources :magazines
+  resources :magazines do
+    member do
+      get 'readpdf'
+    end
+  end
 
   root :to => "home#index"
   get "home/index"

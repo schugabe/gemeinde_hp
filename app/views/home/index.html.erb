@@ -9,7 +9,7 @@
 <% end %>
 
 <% unless @events.nil? || @events.length <= 0 %>
-<h1>Upcoming</h1>
+<h2>Upcoming</h2>
 <div class="row">
     <div class="col-sm-12 col-md-6">
         <%= render partial: "events/large_box", object: @events.first, as: "event", locals: {text_length: 1000} %>
@@ -24,11 +24,11 @@
 
 
 <div class="row">
-    <div class="col-md-6 col-sm-12">
-        <h1>Aktueller Rundbrief</h1>
-        bild blabla, link, link Archiv
+    <div class="col-md-4 col-sm-12">
+        <h2>Aktueller Rundbrief <small><%= @magazine.issue %>-<%= @magazine.year %></small></h2>
+        <%= link_to image_tag(@magazine.pdf.url(:thumbnail), class: "img-responsive"), readpdf_magazine_path(@magazine), data: {no_turbolink: true} %>
     </div>
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-8 col-sm-12">
         <h1>Podcast</h1>
         
     </div>

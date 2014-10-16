@@ -1,0 +1,14 @@
+//= require magazine/three66.js
+//= require_directory ./magazine/
+
+$(document).ready(function(){
+$('#magazine').flipBook({ 
+        pdfUrl: $('#magazine').data("pdf"), 
+        assets: {
+            preloader: "<%= image_path 'flipbook/preloader.jpg' %>", 
+            left: "<%= image_path 'flipbook/left.png' %>", 
+            overlay: "<%= image_path 'flipbook/overlay.png' %>", 
+            flipMp3: "<%= asset_path 'flipbook/turnPage.mp3' %>"
+        }
+    });
+});

@@ -1,7 +1,11 @@
-<h1><%= @magazine.title %> <small><%= @magazine.issue %>-<%= @magazine.year %></small></h1>
-
-<div id="magazine" data-pdf="<%= @magazine.pdf.url %>">
-    
+<div class="row">
+    <div class="col-sm-3">
+        <%= image_tag @magazine.pdf.url(:thumbnail), class: "img-responsive" %>
+    </div>
+    <div class="col-sm-9">
+        <h1><%= @magazine.title %> <small><%= @magazine.issue %>-<%= @magazine.year %></small></h1>
+        <%= link_to 'Lesen', readpdf_magazine_path(@magazine), data: {no_turbolink: true} %> |
+        <%= link_to 'Bearbeiten', edit_magazine_path(@magazine) %> |
+        <%= link_to 'Zurück', magazines_path %>
+    </div>
 </div>
-<%= link_to 'Edit', edit_magazine_path(@magazine) %> |
-<%= link_to 'Back', magazines_path %>

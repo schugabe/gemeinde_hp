@@ -11,13 +11,7 @@
     <%= f.text_field :title %>
     <%= f.number_field :issue, min: 1 %>
     <%= f.number_field :year, value: Time.new.year, min: 2000 %>
-    
-    <div class="form-group">
-        <%= f.label :pictures, :class => 'col-sm-2 control-label' %>
-        <div class="col-sm-4">
-            <%= f.file_field :pdf, class: "form-control" %>
-        </div>
-    </div>
+    <%= f.file_field :pdf %>
         
     <%= f.form_group do %>
         <%= f.primary t('actions.save') %>

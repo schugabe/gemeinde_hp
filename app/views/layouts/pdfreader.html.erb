@@ -8,7 +8,10 @@
     <%= favicon_link_tag 'favicon.ico' %>
     <%= favicon_link_tag 'favicon_hires.png', rel: 'apple-touch-icon-precomposed', type: 'image/png' %>
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "pdf", media: "all" %>
+    
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "pdf" %>
     <%= csrf_meta_tags %>
 </head>
 <body>
@@ -17,14 +20,6 @@
             <%= render 'layouts/navigation' %>
         </div>
     </nav>
-    
-    <% if content_for? :jumbotron%>
-        <div class="jumbotron">
-            <div class="container">
-                <%= content_for :jumbotron %>
-            </div>
-        </div>
-    <% end %>
 
     <div class="container content">
         <div class="row">
@@ -32,7 +27,14 @@
                 <%= render 'layouts/messages' %>
                 <ol class="breadcrumb">
                     <%= render_breadcrumbs :tag => :li, :separator => "" %>
-                  </ol>
+                 </ol>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
                 <%= yield %>
             </div>
         </div>
