@@ -8,7 +8,7 @@ class MagazinesController < ApplicationController
   # GET /magazines
   # GET /magazines.json
   def index
-    @magazines = Magazine.all
+    @magazines = Magazine.paginate(page: params[:page], per_page: 12)
   end
 
   # GET /magazines/1
@@ -66,8 +66,7 @@ class MagazinesController < ApplicationController
   end
   
   def readpdf
-    add_breadcrumb "#{@magazine.issue}-#{@magazine.year}", @magazine
-    add_breadcrumb "Lesen"
+    add_breadcrumb "#{@magazine.issue}-#{@magazine.year}"
   end
 
   private

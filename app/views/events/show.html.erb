@@ -18,6 +18,18 @@
             <%= render partial: "attachments/figure", collection: @images, layout: "layouts/col_4", as: "image", locals: {image_size: "medium"} %>
         </div>
     <% end %>
+    
+    <% if @remaining_files && @remaining_files.count > 0 %>
+        <% @remaining_files.each do |attachment| %>
+            <h3><%= attachment.title%> <small><%= link_to "Download", attachment.upload.url %></small></h3>
+            <div class="row hidden-xs">
+                <div class="col-xs-12">
+                    <audio src="<%= attachment.upload.url %>" preload="auto" />
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+    
     <% if current_or_null_user.can_update?(@event) %>
         <p class="links">
             <%= link_to t('actions.edit'), edit_event_path(@event) %> | <%= link_to "Anhang hinzufügen", new_event_attachment_path(@event) %>

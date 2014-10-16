@@ -29,8 +29,21 @@
         <%= link_to image_tag(@magazine.pdf.url(:thumbnail), class: "img-responsive"), readpdf_magazine_path(@magazine), data: {no_turbolink: true} %>
     </div>
     <div class="col-md-8 col-sm-12">
-        <h1>Podcast</h1>
-        
+        <h2>Podcast</h2>
+        <% @podcasts.each do |podcast| %>
+            <h3><%= podcast.title%> <small><%= link_to "Download", podcast.upload.url %></small></h3>
+            
+            <div class="row hidden-xs">
+                <div class="col-xs-12">
+                    <audio src="<%= podcast.upload.url %>" preload="auto" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p><%=link_to podcast.event.title, podcast.event %> - <%= event_duration(podcast.event) %></p>
+                </div>
+            </div>
+        <% end %>
     </div>
 </div>
 

@@ -71,6 +71,10 @@ $(document).ready(function(){
             $('body').removeClass('scrolling-menu');
         }
     });
+
+    audiojs.events.ready(function() {
+        var as = audiojs.createAll();
+    });
 });
 
 $(document).on('page:load', function(){
