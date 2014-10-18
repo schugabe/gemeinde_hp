@@ -25,8 +25,10 @@
 
 <div class="row">
     <div class="col-md-4 col-sm-12">
+        <%if @magazine %>
         <h2>Aktueller Rundbrief <small><%= @magazine.issue %>-<%= @magazine.year %></small></h2>
         <%= link_to image_tag(@magazine.pdf.url(:thumbnail), class: "img-responsive"), readpdf_magazine_path(@magazine), data: {no_turbolink: true} %>
+        <% end %>
     </div>
     <div class="col-md-8 col-sm-12">
         <h2>Podcast</h2>

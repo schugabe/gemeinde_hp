@@ -1,14 +1,15 @@
 GemeindeHp::Application.routes.draw do
+  root :to => "home#index"
+  get "home/index"
+  get "page/:permalink", :to => "pages#show", :as => :page_permalink
+  get "calendar/index"
+  get 'podcast/index'
+
   resources :magazines do
     member do
       get 'readpdf'
     end
   end
-
-  root :to => "home#index"
-  get "home/index"
-  get "page/:permalink", :to => "pages#show", :as => :page_permalink
-  get "calendar/index"
   
   resources :teams do
     resources :people do
