@@ -68,6 +68,10 @@ de:
               password: Passwort
               remember_me: Angemeldet bleiben
               password_confirmation: Passwort bestätigen
+          magazine:
+              title: Titel
+              issue: Ausgabe
+              year: Jahr
   breadcrumbs:
      application:
        root: "Index"
@@ -79,3 +83,7 @@ de:
          index: Kalender
      people:
          index: Teams
+  will_paginate:
+    previous_label: "&#8592;"
+    next_label: "&#8594;"
+    page_gap: "&hellip;"

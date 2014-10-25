@@ -9,7 +9,7 @@
     <% if user.roles.length > 0 %>
         <div class="col-xs-6">
             <div class="well well-sm">
-                <h2><%= user.name %></h2>
+                <h2><%=link_to user.name, user %></h2>
                 <table class="table table-condensed">
                     <% user.roles.each do |role| %>
                     <tr>

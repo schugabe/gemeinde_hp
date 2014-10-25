@@ -1,6 +1,5 @@
 GemeindeHp::Application.routes.draw do
   root :to => "home#index"
-  get "home/index"
   get "page/:permalink", :to => "pages#show", :as => :page_permalink
   get "calendar/index"
   get 'podcast/index'
@@ -30,4 +29,6 @@ GemeindeHp::Application.routes.draw do
   resources :events do
     resources :attachments
   end
+  
+  resource :eventbatch
 end

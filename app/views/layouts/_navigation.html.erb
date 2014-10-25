@@ -5,7 +5,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span> Evang-Thening</a>
+    <a class="navbar-brand" href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span> Thening</a>
 </div>
 
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -43,6 +43,9 @@
                     <li>
         		        <%= link_to(t('staff.events'), events_path)  %>
         	        </li>
+                    <li>
+        		        <%= link_to("Veranstaltungs Batch", new_eventbatch_path)  %>
+        	        </li>
                 <% end %>
                 <% if current_user.can_update?(Team) %>
                 <li>
@@ -54,14 +57,14 @@
         		        <%= link_to("Rundbrief", new_magazine_path)  %>
         	        </li>
                 <% end %>
-                <% if current_user.can_update?(Role) %>
-                    <li>
-        		        <%= link_to("Rollen", roles_path)  %>
-        	        </li>
-                <% end %>
                 <% if current_user.can_update?(User) %>
                     <li>
         		        <%= link_to("Benutzer", users_path)  %>
+        	        </li>
+                <% end %>
+                <% if current_user.can_update?(Role) %>
+                    <li>
+        		        <%= link_to("Rollen", roles_path)  %>
         	        </li>
                 <% end %>
             </ul>

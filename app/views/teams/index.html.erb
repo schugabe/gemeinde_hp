@@ -1,32 +1,31 @@
 <h1>Teams</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th class="col-sm-2">Team</th>
-      <th class="col-sm-4">Beschreibung</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr>
-        <td class="vert-align"><%= team.name %></td>
-        <td class="vert-align"><%= team.description %></td>
-        <td class="vert-align">
-            <div class="btn-group btn-group-sm pull-right">
-                <%= link_btn 'Anzeigen', team %>
-                <%= link_btn 'Bearbeiten', edit_team_path(team) %>
-                <%= link_btn 'Mitglieder bearbeiten', team_people_path(team) %>
-                <%= link_btn_destroy 'Team Löschen', team%>
-            </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= link_btn 'Neues Team anlegen', new_team_path, "btn-primary" %> <br><br>
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-sm-2">Team</th>
+          <th class="col-sm-4">Beschreibung</th>
+          <th></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @teams.each do |team| %>
+          <tr>
+            <td class="vert-align"><%= team.name %></td>
+            <td class="vert-align"><%= team.description %></td>
+            <td class="vert-align">
+                <div class="btn-group btn-group-sm pull-right">
+                    <%= link_btn 'Anzeigen', team %>
+                    <%= link_btn 'Bearbeiten', edit_team_path(team) %>
+                    <%= link_btn 'Mitglieder bearbeiten', team_people_path(team) %>
+                    <%= link_btn_destroy 'Team Löschen', team%>
+                </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
 <br>
-
-<%= link_btn 'Neues Team anlegen', new_team_path, "btn-primary" %>

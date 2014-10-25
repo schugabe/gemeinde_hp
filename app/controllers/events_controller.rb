@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   add_breadcrumb I18n.t('breadcrumbs.calendar.index'), :calendar_index_path
   
   def index
-    @events = Event.order("starts_at desc")
+    @events = Event.order("starts_at desc").paginate(page: params[:page], per_page: 10)
   end
 
   def show

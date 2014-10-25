@@ -58,23 +58,31 @@ class Event < ActiveRecord::Base
   end
   
   def self.get_date(date,new_date)
-    tmp = new_date.split('.')
-    if date.nil?
-      date = DateTime.now
-    end
-    if tmp.length == 3
-      DateTime.new(tmp[2].to_i,tmp[1].to_i,tmp[0].to_i,date.hour,date.min,0,date.zone)
-    else
-      date
+    begin 
+      tmp = new_date.split('.')
+      if date.nil?
+        date = DateTime.now
+      end
+      if tmp.length == 3
+        DateTime.new(tmp[2].to_i,tmp[1].to_i,tmp[0].to_i,date.hour,date.min,0,date.zone)
+      else
+        date
+      end
+    rescue
+      nil
     end
   end
   
   def self.get_time(date,new_time)
-    tmp = new_time.split(':')
-    if tmp.length == 2
-      DateTime.new(date.year,date.month,date.day,tmp[0].to_i,tmp[1].to_i,0,date.zone)
-    else
-      date
+    begin
+      tmp = new_time.split(':')
+      if tmp.length == 2
+        DateTime.new(date.year,date.month,date.day,tmp[0].to_i,tmp[1].to_i,0,date.zone)
+      else
+        date
+      end
+    rescue
+      nil
     end
   end
 end

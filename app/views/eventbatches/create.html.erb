@@ -1,0 +1,12 @@
+<h1>Event batch</h1>
+<p>Es wurden <%= pluralize(@created , 'Ereignis', 'Ereignisse')%> angelegt.</p>
+
+<% if @failed > 0 %>
+<p>Dabei traten <%= @failed %> Fehler auf. Folgende Zeilen konnten nicht verarbeitet werden:</p>
+
+<ul>
+<% @failed_str.each do |str| %>
+    <li><%= str %></li>
+<% end %>
+</ul>
+<% end %>

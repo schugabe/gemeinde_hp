@@ -2,30 +2,32 @@
 
 <div class="row">
     <div class="col-sm-6">
-        <table id="sortable" data-update_url="<%= sort_team_people_path(@team) %>" class="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @people.each do |person| %>
-              <tr data-item_id="<%= person.id %>" class="item">
-                <td><%= person.name %></td>
-                <td><%= person.position %></td>
-                <td class="vert-align">
-                    <div class="btn-group btn-group-sm pull-right">
-                        <%= link_btn 'Bearbeiten', edit_team_person_path(@team,person) %>
-                        <%= link_btn_destroy 'Löschen', [@team,person]%>
-                    </div>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+            <table id="sortable" data-update_url="<%= sort_team_people_path(@team) %>" class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th></th>
+                </tr>
+              </thead>
+            
+              <tbody>
+                <% @people.each do |person| %>
+                  <tr data-item_id="<%= person.id %>" class="item">
+                    <td><%= person.name %></td>
+                    <td><%= person.position %></td>
+                    <td class="vert-align">
+                        <div class="btn-group btn-group-sm pull-right">
+                            <%= link_btn 'Bearbeiten', edit_team_person_path(@team,person) %>
+                            <%= link_btn_destroy 'Löschen', [@team,person]%>
+                        </div>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

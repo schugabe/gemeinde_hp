@@ -1,7 +1,7 @@
 <h2>Benutzer</h2>
 
 <%= link_to "Neuen Benutzer anlegen" , new_user_path, class: "btn btn-primary" %> <br> <br>
-
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -17,11 +17,12 @@
             <td><%=link_to user.name, user %></td>
             <td><%= mail_to user.email %></td>
             <td><%= format_datetime user.last_sign_in_at %></td>
-            <td>
+            <td><div class="btn-group pull-right">
                 <%= link_to "Anzeigen", user, class: "btn btn-default btn-sm"  %>
-                <%= link_to t('actions.edit'), edit_user_path(user), class: "btn btn-default btn-sm" %> <%= link_to t('actions.destroy'), user, method: :delete, data: { confirm: t('actions.confirm') },class: "btn btn-danger btn-sm" %>
+                <%= link_to t('actions.edit'), edit_user_path(user), class: "btn btn-default btn-sm" %> <%= link_to t('actions.destroy'), user, method: :delete, data: { confirm: t('actions.confirm') },class: "btn btn-danger btn-sm" %></div>
             </td>
           </tr>
         <% end %>
     </tbody>
 </table>
+</div>
