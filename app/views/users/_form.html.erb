@@ -1,0 +1,10 @@
+<%= bootstrap_form_for(@user, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f| %>
+    <%= f.email_field :email, :autofocus => true %>
+    <%= f.text_field :name %>
+    
+    <%= f.password_field :password, :autocomplete => "off", help: t('devise.profile.password') %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.form_group do %>
+        <%= f.submit t('devise.profile.update') %>
+    <% end %>
+<% end %>

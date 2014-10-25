@@ -22,47 +22,64 @@
             </ul>
         </li>
         <li>
-            <a href="/calendar/index">Kalender</span></a>
+            <a href="/calendar/index">Kalender</a>
+        </li>
+        <li>
+            <%= link_to "Rundbrief", magazines_path %>
+        </li>
+        <li>
+            <%= link_to "Podcast", podcast_index_path %>
         </li>
         <% if current_user && (current_user.has_role?(:staff) || current_user.has_role?(:admin)) %>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li>
-        		    <%= link_to(t('staff.pages'), pages_path)  %>
-        	    </li>
-                <li>
-        		    <%= link_to(t('staff.events'), events_path)  %>
-        	    </li>
+                <% if current_user.can_update?(Page) %>
+                    <li>
+        		        <%= link_to(t('staff.pages'), pages_path)  %>
+        	        </li>
+                <% end %>
+                <% if current_user.can_update?(Event) %>
+                    <li>
+        		        <%= link_to(t('staff.events'), events_path)  %>
+        	        </li>
+                <% end %>
+                <% if current_user.can_update?(Team) %>
                 <li>
         		    <%= link_to("Teams", teams_path)  %>
         	    </li>
-                <li>
-        		    <%= link_to("Rundbrief", magazines_path)  %>
-        	    </li>
+                <% end %>
+                <% if current_user.can_update?(Magazine) %>
+                    <li>
+        		        <%= link_to("Rundbrief", new_magazine_path)  %>
+        	        </li>
+                <% end %>
+                <% if current_user.can_update?(Role) %>
+                    <li>
+        		        <%= link_to("Rollen", roles_path)  %>
+        	        </li>
+                <% end %>
+                <% if current_user.can_update?(User) %>
+                    <li>
+        		        <%= link_to("Benutzer", users_path)  %>
+        	        </li>
+                <% end %>
             </ul>
         </li>
         <% end %>
+        <% if user_signed_in? %>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-            <% if user_signed_in? %>
                 <li>
                 	<%= link_to(t('profile.edit'), edit_user_registration_path) %>
                 </li>
                 <li>
                 	<%= link_to(t('profile.logout'), destroy_user_session_path, :method=>'delete') %>
                 </li>
-            <% else %>
-        	    <li>
-        		    <%= link_to(t('profile.login'), new_user_session_path)  %>
-        	    </li>
-        	   	<li>
-        		    <%= link_to(t('profile.sign_up'), new_user_registration_path)  %>
-        	    </li>
-        	<% end %>
             </ul>
         </li>
+        <% end %>
     </ul>
 </div><!-- /.navbar-collapse -->
 </nav>

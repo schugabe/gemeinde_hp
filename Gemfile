@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'dotenv-rails', :groups => [:production, :development, :test]
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 
 gem 'sass-rails', '~> 4.0'
@@ -20,11 +18,6 @@ gem 'jquery-turbolinks'
 gem 'turbolinks'
 
 gem 'jbuilder', '~> 1.2'
-
-group :doc do
-  gem 'sdoc', require: false
-end
-
 gem 'devise', '>= 3.1'
 gem 'authority', '>= 2.9.0'
 gem 'rolify', github: 'EppO/rolify'
@@ -36,6 +29,7 @@ gem 'breadcrumbs_on_rails'
 gem 'font-awesome-sass'
 gem 'will_paginate-bootstrap'
 gem 'audiojs'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 group :development, :test do
   gem 'factory_girl_rails'
@@ -43,10 +37,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'unicorn'
-
 #group :production do
-#  gem 'pg'
+#  gem 'mysql2'
 #end
 
 group :test do
@@ -60,9 +52,14 @@ end
 group :development do
   gem 'capistrano-rails', '~> 1.1.0'
   gem 'capistrano-chruby', '~> 0.1.1'
-  gem 'capistrano3-unicorn'
+  #gem 'capistrano3-unicorn'
   gem 'quiet_assets'
+end
+
+group :doc do
+  gem 'sdoc', require: false
 end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+#gem 'unicorn'

@@ -4,7 +4,17 @@ GemeindeHp::Application.routes.draw do
   get "page/:permalink", :to => "pages#show", :as => :page_permalink
   get "calendar/index"
   get 'podcast/index'
-
+  
+  devise_for :users, :controllers => { :registrations => :registrations }, :path_prefix => 'my'
+  resources :users do
+    member do
+      put :activate
+      put :disable
+    end
+  end
+  resources :pages
+  resources :roles
+  
   resources :magazines do
     member do
       get 'readpdf'
@@ -20,9 +30,4 @@ GemeindeHp::Application.routes.draw do
   resources :events do
     resources :attachments
   end
-  
-  resources :pages
-
-  devise_for :users, :controllers => { :registrations => :registrations }
-  resources :users, only: [:index, :show]
 end

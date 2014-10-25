@@ -37,4 +37,8 @@ module ApplicationHelper
     link_to body, url, method: :delete, data: { confirm: 'Wirklich löschen?' }, class:"btn btn-danger"
   end
   
+  def format_datetime(date)
+    date.nil? ? "Nie" : l(date, format: :long)
+  end
+  
 end

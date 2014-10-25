@@ -1,9 +1,9 @@
 class MagazineAuthorizer < ApplicationAuthorizer
   def self.creatable_by?(user)
-    user.has_role?(:admin) || user.has_role?(:editor)
+    user.has_role?(:admin) || user.has_role?(:magazine)
   end
   def self.updatable_by?(user)
-    user.has_role?(:admin) || user.has_role?(:editor)
+    user.has_role?(:admin) || user.has_role?(:magazine)
   end
   
   def self.readable_by?(user)
@@ -11,6 +11,6 @@ class MagazineAuthorizer < ApplicationAuthorizer
   end
     
   def self.listable_by?(user)
-    user.has_role?(:admin) || user.has_role?(:editor)
+    true
   end
 end

@@ -1,0 +1,8 @@
+<div class="col-sm-6 col-md-4">
+    <h2><%= magazine.title %> <small><%= magazine.issue %>-<%= magazine.year %></small></h2>
+    <%= link_to image_tag(magazine.pdf.url(:thumbnail), class: "img-responsive"), readpdf_magazine_path(magazine), data: {no_turbolink: true} %>
+    <% if current_or_null_user.can_update?(magazine) %>
+        <%= link_to 'Bearbeiten', edit_magazine_path(magazine) %> |
+        <%= link_to 'Löschen', magazine, method: :delete, data: { confirm: 'Wirklich löschen?' } %>
+    <% end %>
+</div>

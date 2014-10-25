@@ -1,0 +1,19 @@
+<%= bootstrap_form_for(@role, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f| %>
+    <% if @role.errors.any? %>
+        <div class="alert alert-warning">
+            <ul>
+            <% @role.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= f.collection_select :tmpuser, User.all, :id, :name, label: "Benutzer" %>
+    <%= f.select :name, options_for_select(Role.all_roles), label: "Rolle" %>
+    <%= f.hidden_field :userprofile, value: 0 %>
+    
+    
+    <%= f.form_group do %>
+        <%= f.primary t('actions.save') %>
+    <% end %>
+<% end %>

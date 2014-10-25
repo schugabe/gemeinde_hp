@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <p>&copy; Evangelische Gemeinde Thening 2014 | <a href="/page/impressum">Impressum</a></p>
+                    <p>&copy; Evangelische Gemeinde Thening <%= Date.today.year %> | <a href="/page/impressum">Impressum</a> | <% if current_user%> <%= link_to(t('profile.logout'), destroy_user_session_path, :method=>'delete') %> <% else %><%= link_to(t('profile.login'), new_user_session_path) %><% end %></p>
                 </div>
             </div>
         </div>

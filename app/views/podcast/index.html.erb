@@ -1,0 +1,5 @@
+<h1>Podcast</h1>
+
+<%= render partial: "podcast", collection: @podcasts %>
+
+<%= will_paginate @podcasts, renderer: BootstrapPagination::Rails %>

@@ -6,4 +6,9 @@ footer {
     color: $top-color-text;
     padding-top: 42px;
     padding-bottom: 42px;
+    
+    a {
+        color: white;
+        text-decoration: underline;
+    }
 }
