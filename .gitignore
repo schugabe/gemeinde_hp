@@ -21,3 +21,10 @@ pickle-email-*.html
 config/database.yml
 config/unicorn.rb
 config/deploy/*
+public/web.config
+public/zoo-index.html
+web.config
+public/assets/*
+console/*
+GEM_HOME/*
+.gem/*
