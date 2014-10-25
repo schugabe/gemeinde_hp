@@ -81,8 +81,8 @@ GemeindeHp::Application.configure do
   config.action_mailer.default_url_options = { :host => 'http://evang-thening.at' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address        => 'localhost',
-    :port           => '25',
+    :address        => 'mail.evang-thening.at',
+    :port           => '993',
     :authentication => :plain,
     :user_name      => ENV['EMAIL_USERNAME'],
     :password       => ENV['EMAIL_PASSWORD'],
