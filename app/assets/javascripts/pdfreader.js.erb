@@ -1,7 +1,8 @@
 
 $(document).ready(function(){
 $('#magazine').flipBook({ 
-        pdfUrl: $('#magazine').data("pdf"), 
+        pdfUrl: $('#magazine').data("pdf"),
+        pdfPageScale:1.5,
         assets: {
             preloader: "<%= image_path 'flipbook/preloader.jpg' %>", 
             left: "<%= image_path 'flipbook/left.png' %>", 
