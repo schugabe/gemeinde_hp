@@ -29,7 +29,7 @@ gem 'breadcrumbs_on_rails'
 gem 'font-awesome-sass'
 gem 'will_paginate-bootstrap'
 gem 'audiojs'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 group :development, :test do
   gem 'factory_girl_rails'
@@ -37,9 +37,10 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-#group :production do
-#  gem 'mysql2'
-#end
+group :production do
+# gem 'mysql2'
+  gem 'thin'
+end
 
 group :test do
   gem 'capybara'

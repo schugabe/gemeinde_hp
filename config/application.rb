@@ -36,7 +36,7 @@ module GemeindeHp
     config.autoload_paths += %W(#{config.root}/lib)
     
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    
+    config.assets.precompile += %w( pdfreader.js pdf.css )
     config.action_view.sanitized_allowed_tags = 'br', 'b', 'i', 'u', 'blockqoute', 'a', 'ul', 'li', 'ol'
   end
 end
