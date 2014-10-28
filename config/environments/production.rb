@@ -24,7 +24,7 @@ GemeindeHp::Application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -82,12 +82,11 @@ GemeindeHp::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address        => 'mail.evang-thening.at',
-    :port           => '993',
-    :authentication => :plain,
+    :port           => '25',
+    :authentication => 'login',
     :user_name      => ENV['EMAIL_USERNAME'],
     :password       => ENV['EMAIL_PASSWORD'],
-    :domain         => 'evang-thening.at',
-    :enable_starttls_auto => true
+    :domain         => 'evang-thening.at'
   }
 
 end
