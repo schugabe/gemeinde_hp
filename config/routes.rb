@@ -3,6 +3,7 @@ GemeindeHp::Application.routes.draw do
   get "page/:permalink", :to => "pages#show", :as => :page_permalink
   get 'calendar/index'
   get 'calendar/upcoming'
+  get 'calendar/upcoming_month'
   get 'podcast/index'
   
   devise_for :users, :controllers => { :registrations => :registrations }, :path_prefix => 'my'

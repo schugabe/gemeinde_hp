@@ -11,10 +11,17 @@ class CalendarController < ApplicationController
     @events = Event.upcoming.limit(5)
   end
   
+  def upcoming_month
+    @events = Event.upcoming.where("starts_at < ?", Time.now.utc.end_of_month)
+    render :upcoming
+  end
+  
 private
   def resolve_layout
     case action_name
     when "upcoming"
+      "upcoming"
+    when "upcoming_month"
       "upcoming"
     else
       "application"
