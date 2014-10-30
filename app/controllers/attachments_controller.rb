@@ -2,24 +2,32 @@ class AttachmentsController < ApplicationController
   before_action :set_event
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
 
+  authorize_actions_for Event
+    
   # GET /attachments
   # GET /attachments.json
   def index
-    redirect_to @event
+    add_breadcrumb @event.title, @event
+    @attachments = @event.attachments
   end
 
   # GET /attachments/1
   # GET /attachments/1.json
   def show
+    redirect_to @event
   end
 
   # GET /attachments/new
   def new
+    add_breadcrumb @event.title, @event
+    add_breadcrumb "Anhänge", event_attachments_path(@event)
     @attachment = @event.attachments.build
   end
 
   # GET /attachments/1/edit
   def edit
+    add_breadcrumb @event.title, @event
+    add_breadcrumb "Anhänge", event_attachments_path(@event)
   end
 
   # POST /attachments
@@ -57,7 +65,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to event_attachments_url(@event) }
+      format.html { redirect_to event_attachments_path(@event) }
       format.json { head :no_content }
     end
   end

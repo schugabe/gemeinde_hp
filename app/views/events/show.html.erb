@@ -32,7 +32,7 @@
     
     <% if current_or_null_user.can_update?(@event) %>
         <p class="links">
-            <%= link_to t('actions.edit'), edit_event_path(@event) %> | <%= link_to "Anhang hinzufügen", new_event_attachment_path(@event) %>
+            <%= link_to t('actions.edit'), edit_event_path(@event) %> | <%= link_to "Anhang hinzufügen", new_event_attachment_path(@event) %> | <%= link_to "Anhänge bearbeiten", event_attachments_path(@event) %>
         </p>
     <% end %>
 </div>

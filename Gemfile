@@ -31,6 +31,8 @@ gem 'will_paginate-bootstrap'
 gem 'audiojs'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
+gem 'autoprefixer-rails'
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'

@@ -3,7 +3,7 @@
     <figcaption>
         <%= image.description %>
         <% if current_or_null_user.can_update?(image) %>
-            <p class="links"><%= link_to "Bearbeiten", edit_event_attachment_path(image.event,image) %></p>
+            <p class="links"><%= link_to "Bearbeiten", edit_event_attachment_path(image.event,image) %> | <%= link_to t('actions.destroy'), [image.event,image], method: :delete, data: { confirm: t('actions.confirm') }%></p>
         <% end %>
     </figcaption>
 </figure>
