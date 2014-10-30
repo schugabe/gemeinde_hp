@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
   resourcify
   sanitizes :description
   
-  has_many :attachments
+  has_many :attachments, :dependent => :destroy
   
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
