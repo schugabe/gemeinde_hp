@@ -12,8 +12,7 @@ class CalendarController < ApplicationController
   end
   
   def upcoming_month
-    @events = Event.upcoming.where("starts_at < ?", Time.now.utc.end_of_month)
-    render :upcoming
+    
   end
   
 private
