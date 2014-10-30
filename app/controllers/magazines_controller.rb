@@ -60,7 +60,7 @@ class MagazinesController < ApplicationController
   def destroy
     @magazine.destroy
     respond_to do |format|
-      format.html { redirect_to magazines_url }
+      format.html { redirect_to magazines_path }
       format.json { head :no_content }
     end
   end

@@ -25,4 +25,12 @@ protected
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update) << :name    
   end
+
+  def default_url_options()
+    if Rails.env.production?
+      {host: "gemeinde.evang-thening.at", port: 80}
+    else
+      {}
+    end
+  end
 end

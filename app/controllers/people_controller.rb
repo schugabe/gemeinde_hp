@@ -43,7 +43,7 @@ class PeopleController < ApplicationController
 
   def destroy
     @person.destroy
-    redirect_to team_people_url(@team)
+    redirect_to team_people_path(@team)
   end
   
   def sort
