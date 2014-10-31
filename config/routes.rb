@@ -1,4 +1,6 @@
 GemeindeHp::Application.routes.draw do
+  resources :rooms
+
   root :to => "home#index"
   get "page/:permalink", :to => "pages#show", :as => :page_permalink
   get 'calendar/index'

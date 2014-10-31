@@ -1,6 +1,6 @@
 <div class="event-box">
     <h2><%= @event.title %></h2>
-    <p class="date"><%= event_duration(@event) %></p>
+    <p class="date"><%= event_duration(@event) %> <% unless @event.room.nil? %>, <%= render @event.room %><% end %></p>
     
     <div class="row">
         <% if @first_image %>
@@ -10,6 +10,7 @@
             <p>
                 <%= sanitize @event.description %>
             </p>
+            
         </div>
     </div>
     

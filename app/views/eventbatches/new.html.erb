@@ -1,5 +1,5 @@
 <%= form_tag eventbatch_path do %>
-    <p>Ein Datensatz pro Zeile in der Reihenfolge<br>Titel;Begin Datum;Begin Zeit;Ende Datum;Ende Zeit;Beschreibung<br>Gottesdienst;1.1.2014;9:00;1.1.2014;10:00;Gottesdienst in Thening</p>
+    <p>Ein Datensatz pro Zeile in der Reihenfolge<br>Titel;Begin Datum;Begin Zeit;Ende Datum;Ende;RaumID Zeit;Beschreibung<br>Gottesdienst;1.1.2014;9:00;1.1.2014;10:00;Gottesdienst in Thening;1</p>
     <div class="form-group">
         <%= text_area_tag "batch", nil, rows: 30,  class: "form-control"  %>
     </div>  

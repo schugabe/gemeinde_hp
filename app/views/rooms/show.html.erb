@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @room.name %> <small><%= @room.street %><% unless @room.plz.nil?%>, <%= @room.plz %><% end %> <%= @room.city %></small></h1>
+
+<p>
+  <%= @room.description %>
+</p>
+
+<%= link_to t('actions.edit'), edit_room_path(@room) %>

@@ -48,11 +48,16 @@ de:
       sign_in: "Anmelden"
       forgot:  "Passwort vergessen?"
       confirmation: Bestätigung nicht erhalten?
+  room:
+      room: Raum
+      rooms: Räume
+      occupied: Raum zu dieser Zeit belegt
   activerecord:
       models:
           page: Seite
           event: Veranstaltung
           user: Benutzer
+          room: Raum
       attributes:
           page:
               title: Titel
@@ -64,6 +69,7 @@ de:
               description: Beschreibung
               starts_at_date: Begin
               ends_at_date: Ende
+              room: Raum
           user:
               password: Passwort
               remember_me: Angemeldet bleiben
@@ -72,6 +78,12 @@ de:
               title: Titel
               issue: Ausgabe
               year: Jahr
+          room:
+              name: Name
+              description: Beschreibung
+              street: Straße
+              plz: PLZ
+              city: Stadt
   breadcrumbs:
      application:
        root: "Index"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012141855) do
+ActiveRecord::Schema.define(version: 20141031133114) do
 
   create_table "attachments", force: true do |t|
     t.string   "title"
@@ -37,7 +37,10 @@ ActiveRecord::Schema.define(version: 20141012141855) do
     t.boolean  "all_day"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "room_id"
   end
+
+  add_index "events", ["room_id"], name: "index_events_on_room_id"
 
   create_table "magazines", force: true do |t|
     t.integer  "issue"
@@ -87,6 +90,16 @@ ActiveRecord::Schema.define(version: 20141012141855) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "rooms", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "street"
+    t.integer  "plz"
+    t.string   "city"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "teams", force: true do |t|
     t.string   "name"

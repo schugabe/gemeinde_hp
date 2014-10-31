@@ -1,5 +1,5 @@
 class Role < ActiveRecord::Base
-  ROLES = [:admin, :staff, :page, :event, :magazine, :team]
+  ROLES = [:admin, :staff, :page, :event, :magazine, :team, :room]
   
   has_and_belongs_to_many :users, :join_table => :users_roles
   belongs_to :resource, :polymorphic => true

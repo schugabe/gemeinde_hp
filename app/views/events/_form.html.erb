@@ -63,6 +63,13 @@
     </div>
     
     <div class="form-group">
+        <%= f.label :room, class: "col-sm-2 control-label" %>
+        <div class="col-sm-8">
+            <%= f.collection_select(:room_id, Room.all, :id, :name, { include_blank: true }, { class: "form-control" } ) %>
+        </div>
+    </div>
+    
+    <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
           <%= f.submit t('actions.save'), class: "btn btn-default" %>
       </div>

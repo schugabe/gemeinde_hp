@@ -8,7 +8,12 @@ class CalendarController < ApplicationController
   end
   
   def upcoming
-    @events = Event.upcoming.limit(5)
+    if params[:room]
+      @events = Room.find(params[:room]).events
+    else
+      @events = Event
+    end
+    @events = @events.upcoming.limit(5)
   end
   
   def upcoming_month

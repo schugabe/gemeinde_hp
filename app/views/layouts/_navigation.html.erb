@@ -67,6 +67,11 @@
         		        <%= link_to("Rollen", roles_path)  %>
         	        </li>
                 <% end %>
+                <% if current_user.can_update?(Room) %>
+                    <li>
+        		        <%= link_to("Räume", rooms_path)  %>
+        	        </li>
+                <% end %>
             </ul>
         </li>
         <% end %>

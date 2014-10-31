@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   scope :after, ->(start_time) { where("starts_at > ?", Event.format_date(start_time)) }
   scope :upcoming, -> { where("ends_at > ?", DateTime.now).order("starts_at asc") }
   
-  validate :check_dates
+  validate :check_dates, :check_room
   
   validates :title, :description, :starts_at, :ends_at, presence: true
   
@@ -12,6 +12,7 @@ class Event < ActiveRecord::Base
   sanitizes :description
   
   has_many :attachments, :dependent => :destroy
+  belongs_to :room
   
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
@@ -83,6 +84,19 @@ class Event < ActiveRecord::Base
       end
     rescue
       nil
+    end
+  end
+  
+  def check_room
+    unless room.nil?
+      overlapping = room.events.where("((starts_at BETWEEN ? AND ? OR ends_at BETWEEN ? AND ?) OR (starts_at <= ? AND ends_at >= ?))", starts_at, ends_at, starts_at, ends_at, starts_at, ends_at)
+      count = overlapping.count
+      if count > 0
+        if overlapping.first.id == id && count == 1
+        else
+          errors.add("room", I18n.t('room.occupied'))
+        end 
+      end
     end
   end
 end
