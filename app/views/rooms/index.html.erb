@@ -1,10 +1,10 @@
-<h1>Räume</h1>
-<%= link_to "Neuen Raum anlegen", new_room_path, class: "btn btn-primary" %><br><br>
+<h1><%= t('room.rooms') %></h1>
+<%= link_to t('room.new'), new_room_path, class: "btn btn-primary" %><br><br>
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Adresse</th>
+      <th><%= t('room.name') %></th>
+      <th><%= t('room.address')%></th>
       <th></th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
       <tr>
         <td><%=link_to room.name, room %></td>
         <td><%= room.street %> <%= room.plz %> <%= room.city %></td>
-        <td><div class="btn-group pull-right"><%= link_to t('actions.edit'), edit_room_path(room), class: "btn btn-default btn-sm" %> <%= link_to t('actions.destroy'), room, method: :delete, data: { confirm: t('actions.confirm') },class: "btn btn-danger btn-sm" %></div></td>
+        <td><div class="btn-group pull-right"><%= edit_btn(edit_room_path(room)) %> <%= destroy_btn(room) %></div></td>
       </tr>
     <% end %>
   </tbody>

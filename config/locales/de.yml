@@ -1,21 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
@@ -33,6 +15,7 @@ de:
       created: Inhalt wurde angelegt
       updated: Inhalt wurde aktualisiert
       new: Neuen Inhalt erstellen
+      create: Erstellen
   profile:
       profile: Profil
       edit: Profil bearbeiten
@@ -52,12 +35,64 @@ de:
       room: Raum
       rooms: Räume
       occupied: Raum zu dieser Zeit belegt
+  attachment:
+      new: Anhang hinzufügen
+      edit: Anhänge bearbeiten
+      single_edit: Anhang bearbeiten
+      attachments: Anhänge
+      title: Titel
+      description: Beschreibung
+  calendar:
+      calendar: Kalender
+  event:
+      batch: Eventsbatch
+      show_details: Details anzeigen
+      new: Neue Veranstaltung anlegen
+      new_batch: Batch anlegen
+      title: Titel
+      starts_at: Begin
+      ends_at: Ende
+  magazine:
+      magazine: Rundbrief
+      edit: Rundbrief bearbeiten
+      new: Neuen Rundbrief anlegen
+  page:
+      new: Neue Seite anlegen
+  team:
+      teams: Teams
+      team: Team
+      description: Beschreibung
+      new: Neues Team anlegen
+      edit: Team bearbeiten
+      edit_members: Mitglieder bearbeiten
+      members: Mitglieder von
+  person:
+      contact: Kontakt
+      new: Neue Person anlegen
+      edit: Person bearbeiten
+      name: Name
+      position: Position
+  podcast:
+      podcast: Podcast
+      subscribe: Podcast abonieren
+  role:
+      new: Neue Rolle anlegen
+  room:
+      edit: Raum bearbeiten
+      rooms: Räume
+      new: Neuen Raum anlegen
+      name: Name
+      address: Adresse
   activerecord:
       models:
           page: Seite
           event: Veranstaltung
           user: Benutzer
           room: Raum
+          attachment: Anhang
+          person: Person
+          Team: Team
+          magazine: Rundbrief
       attributes:
           page:
               title: Titel
@@ -84,6 +119,20 @@ de:
               street: Straße
               plz: PLZ
               city: Stadt
+          attachment:
+              title: Titel
+              description: Beschreibung
+              upload: Datei
+          person:
+              name: Name
+              position: Position
+              about: Über
+              contact: eMail Adresse
+              team: Team
+              avatar: Bild
+          team:
+              description: Beschreibung
+              name: Name
   breadcrumbs:
      application:
        root: "Index"

@@ -1,13 +1,14 @@
-<h1>Mitglieder von <%= @team.name %></h1>
+<h1><%= t 'team.members' %> <%= @team.name %></h1>
 
+<%= new_btn 'person.new', new_team_person_path(@team) %>
 <div class="row">
     <div class="col-sm-6">
         <div class="table-responsive">
             <table id="sortable" data-update_url="<%= sort_team_people_path(@team) %>" class="table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
+                  <th><%= t 'person.name' %></th>
+                  <th><%= t 'person.position' %></th>
                   <th></th>
                 </tr>
               </thead>
@@ -19,8 +20,8 @@
                     <td><%= person.position %></td>
                     <td class="vert-align">
                         <div class="btn-group btn-group-sm pull-right">
-                            <%= link_btn 'Bearbeiten', edit_team_person_path(@team,person) %>
-                            <%= link_btn_destroy 'Löschen', [@team,person]%>
+                            <%= edit_btn edit_team_person_path(@team,person) %>
+                            <%= destroy_btn [@team,person]%>
                         </div>
                     </td>
                   </tr>
@@ -30,8 +31,3 @@
         </div>
     </div>
 </div>
-
-
-<br>
-
-<%= link_btn 'Neue Person anlegen', new_team_person_path(@team), "btn-primary" %>

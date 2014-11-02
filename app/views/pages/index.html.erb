@@ -1,21 +1,20 @@
 <h1><%= t('staff.pages') %></h1>
-<%= link_to t('actions.new_page') , new_page_path, class: "btn btn-primary" %> <br><br>
+<%= new_btn 'actions.new_page' , new_page_path %>
 <div class="row" data-no-turbolink>
-    <div class="col-md-6">
+    <div class="col-sm-6">
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
                         <th><%= Page.human_attribute_name("title") %></th>
-                        <th><%= t('actions.actions') %></th>
+                        <th></th>
                     </tr>
                 </thead>
-
                 <tbody>
                     <% @pages.each do |page| %>
                     <tr>
                         <td><%= link_to page.title, page %></td>
-                        <td><div class="btn-group pull-right"><%= link_to t('actions.edit'), edit_page_path(page), class: "btn btn-default btn-sm" %> <%= link_to t('actions.destroy'), page, method: :delete, data: { confirm: t('actions.confirm') },class: "btn btn-danger btn-sm" %></div></td>
+                        <td><div class="btn-group pull-right"><%= edit_btn edit_page_path(page) %> <%= destroy_btn page %></div></td>
                     </tr>
                     <% end %>
                 </tbody>

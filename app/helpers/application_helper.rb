@@ -29,16 +29,36 @@ module ApplicationHelper
     end
   end
   
-  def link_btn(body, url, style="btn-default" )
-    link_to body, url, class:"btn #{style}"
-  end
-  
-  def link_btn_destroy(body, url)
-    link_to body, url, method: :delete, data: { confirm: 'Wirklich löschen?' }, class:"btn btn-danger"
-  end
-  
   def format_datetime(date)
     date.nil? ? "Nie" : l(date, format: :long)
   end
   
+  def link_btn(body, url, style="btn-default" )
+    link_to body, url, class:"btn #{style}"
+  end
+  
+  def new_btn(label, url, append_br=true)
+    br = ""
+    br = "<br><br>" if append_br
+    link_btn(t(label), url, "btn-primary")+"#{br}".html_safe
+  end
+  
+  def edit_btn(url)
+    link_btn t('actions.edit'), url, "btn-default btn-sm"
+  end
+  
+  def destroy_btn(url)
+    link_to t('actions.destroy'), url, method: :delete, data: { confirm: t('actions.confirm') },class: "btn btn-danger btn-sm"
+  end
+  
+  def print_errors(resource)
+    if resource.errors.any?
+      result = '<div class="alert alert-warning"><ul>'
+      resource.errors.full_messages.each do |msg|
+        result << "<li>#{h(msg)}</li>"
+      end
+      result << '</ul></div>'
+      result.html_safe
+    end
+  end
 end

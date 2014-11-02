@@ -1,15 +1,15 @@
-<h1>Teams</h1>
-<%= link_btn 'Neues Team anlegen', new_team_path, "btn-primary" %> <br><br>
+<h1><%= t('team.teams') %></h1>
+
+<%= new_btn 'team.new', new_team_path %>
 <div class="table-responsive">
     <table class="table">
       <thead>
         <tr>
-          <th class="col-sm-2">Team</th>
-          <th class="col-sm-4">Beschreibung</th>
+          <th class="col-sm-2"><%= t('team.team') %></th>
+          <th class="col-sm-4"><%= t('team.description') %></th>
           <th></th>
         </tr>
       </thead>
-    
       <tbody>
         <% @teams.each do |team| %>
           <tr>
@@ -17,10 +17,10 @@
             <td class="vert-align"><%= team.description %></td>
             <td class="vert-align">
                 <div class="btn-group btn-group-sm pull-right">
-                    <%= link_btn 'Anzeigen', team %>
-                    <%= link_btn 'Bearbeiten', edit_team_path(team) %>
-                    <%= link_btn 'Mitglieder bearbeiten', team_people_path(team) %>
-                    <%= link_btn_destroy 'Team Löschen', team%>
+                    <%= link_btn t('actions.show'), team %>
+                    <%= edit_btn edit_team_path(team) %>
+                    <%= link_btn t('team.edit_members'), team_people_path(team) %>
+                    <%= destroy_btn team%>
                 </div>
             </td>
           </tr>

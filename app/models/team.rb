@@ -3,4 +3,5 @@ class Team < ActiveRecord::Base
   include Authority::Abilities
   
   has_many :persons, :dependent => :destroy
+  validates :name, :description, presence: true
 end

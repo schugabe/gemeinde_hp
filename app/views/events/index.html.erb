@@ -1,22 +1,21 @@
 <h1><%= t('staff.events') %></h1>
-<%= link_to 'Neue Veranstaltung anlegen', new_event_path, class: "btn btn-primary" %> <%= link_to 'Batch anlegen', new_eventbatch_path, class: "btn btn-primary" %> <br> <br>
+<%= new_btn 'event.new', new_event_path, false %> <%= new_btn 'event.new_batch', new_eventbatch_path%>
 <table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Starts at</th>
-      <th>Ends at</th>
+      <th><%= t('event.title') %></th>
+      <th><%= t('event.starts_at') %></th>
+      <th><%= t('event.ends_at') %></th>
       <th></th>
     </tr>
   </thead>
-
   <tbody>
     <% @events.each do |event| %>
       <tr>
         <td><%=link_to event.title,event %></td>
         <td><%=l event.starts_at, format: :long %></td>
         <td><%=l event.ends_at, format: :long %></td>
-        <td><div class="btn-group pull-right"><%= link_to t('actions.edit'), edit_event_path(event), class: "btn btn-default btn-sm" %> <%= link_to t('actions.destroy'), event, method: :delete, data: { confirm: t('actions.confirm') },class: "btn btn-danger btn-sm" %></div></td>
+        <td><div class="btn-group pull-right"><%= edit_btn(edit_event_path(event)) %> <%= destroy_btn event %></div></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,8 +1,4 @@
-<div class="row">
-    <div class="col-xs-12">
-        <%= link_to "Neue Rolle anlegen", new_role_path, class: "btn btn-default" %> <br> <br>
-    </div>
-</div>
+<%= new_btn 'role.new', new_role_path %>
 
 <div class="row">
 <% @users.each do |user| %>
@@ -14,7 +10,7 @@
                     <% user.roles.each do |role| %>
                     <tr>
                         <td><%= role.name %></td>
-                        <td><%= link_to "Rolle löschen", role_path(role, user: user.id), method: :delete, data: { confirm: t('actions.confirm') },class: "btn btn-danger btn-xs pull-right" %></td>
+                        <td><%= destroy_btn role_path(role, user: user.id) %></td>
                     </tr>
                     <% end %>
                 </table>

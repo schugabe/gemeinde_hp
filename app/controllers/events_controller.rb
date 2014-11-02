@@ -17,7 +17,8 @@ class EventsController < ApplicationController
     
     @first_image = @event.attachments.where("upload_content_type like 'image%'").first
     @images = @event.attachments.where("upload_content_type like 'image%' and id <> ?", @first_image.id) unless @first_image.nil?
-    @remaining_files = @event.attachments.where("upload_content_type not like 'image%'")
+    @audio_files = @event.attachments.where("upload_content_type like 'audio%'")
+    @remaining_files = @event.attachments.where("upload_content_type not like 'image%' and upload_content_type not like 'audio%'")
   end
 
   def new

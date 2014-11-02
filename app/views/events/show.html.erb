@@ -10,9 +10,26 @@
             <p>
                 <%= sanitize @event.description %>
             </p>
-            
+            <% if @remaining_files && @remaining_files.count > 0 %>
+				<ul>
+					<% @remaining_files.each do |attachment| %>
+						<li><%= link_to attachment.title, attachment.upload.url %></li>
+					<% end %>
+				</ul>
+			<% end %>
         </div>
     </div>
+	
+    <% if @audio_files && @audio_files.count > 0 %>
+        <% @audio_files.each do |audio_file| %>
+            <h3><%= audio_file.title%> <small><%= link_to "Download", audio_file.upload.url %></small></h3>
+            <div class="row hidden-xs">
+                <div class="col-xs-12">
+                    <audio src="<%= audio_file.upload.url %>" preload="auto" />
+                </div>
+            </div>
+        <% end %>
+    <% end %>
     
     <% if @images && @images.count > 0 %>
         <div class="row">
@@ -20,20 +37,9 @@
         </div>
     <% end %>
     
-    <% if @remaining_files && @remaining_files.count > 0 %>
-        <% @remaining_files.each do |attachment| %>
-            <h3><%= attachment.title%> <small><%= link_to "Download", attachment.upload.url %></small></h3>
-            <div class="row hidden-xs">
-                <div class="col-xs-12">
-                    <audio src="<%= attachment.upload.url %>" preload="auto" />
-                </div>
-            </div>
-        <% end %>
-    <% end %>
-    
     <% if current_or_null_user.can_update?(@event) %>
         <p class="links">
-            <%= link_to t('actions.edit'), edit_event_path(@event) %> | <%= link_to "Anhang hinzufügen", new_event_attachment_path(@event) %> | <%= link_to "Anhänge bearbeiten", event_attachments_path(@event) %>
+            <%= link_to t('actions.edit'), edit_event_path(@event) %> | <%= link_to t('attachment.new'), new_event_attachment_path(@event) %> | <%= link_to link_to t('attachment.edit'), event_attachments_path(@event) %>
         </p>
     <% end %>
 </div>

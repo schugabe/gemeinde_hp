@@ -1,4 +1,6 @@
-<h1>Podcast</h1>
+<h1><%= t 'podcast.podcast' %></h1>
+
+<%= link_to t('podcast.subscribe'), podcast_index_path(format: :rss), class:"btn btn-default" %>
 
 <%= render partial: "podcast", collection: @podcasts %>
 

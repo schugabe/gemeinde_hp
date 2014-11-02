@@ -1,26 +1,14 @@
-<%= bootstrap_form_for([@team,@person], layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4", :html => { :multipart => true }) do |f| %>
-  <% if @person.errors.any? %>
-    <div class="alert alert-warning">
-      <ul>
-      <% @person.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= bootstrap_form_for([@team,@person], layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-6", :html => { :multipart => true }) do |f| %>
+    <%= print_errors @person %>
 
- 
     <%= f.text_field :name %>
- 
     <%= f.text_field :position %>
- 
-    <%= f.text_area :about %>
- 
+    <%= f.text_area :about, rows: 10 %>
     <%= f.text_field :contact %>
- 
+
     <%= f.collection_select :team_id, Team.all, :id, :name %>
     <%= f.file_field :avatar %>
-  <%= f.form_group do %>
-    <%= f.primary t('actions.save') %>
-  <% end %>
+    <%= f.form_group do %>
+        <%= f.primary t('actions.save') %>
+    <% end %>
 <% end %>

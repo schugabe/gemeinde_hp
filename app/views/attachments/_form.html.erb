@@ -1,13 +1,5 @@
 <%= form_for([@event,@attachment], html: { class: "form-horizontal", :multipart => true }) do |f| %>
-<% if @event.errors.any? %>
-<div class="alert alert-danger">
-    <ul>
-        <% @attachment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+    <%= print_errors @attachment %>
     <div class="form-group">
         <%= f.label :title, class: "col-sm-2 control-label" %>
         <div class="col-sm-4">
@@ -29,7 +21,6 @@
         </div>
     </div>
 
-    
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
           <%= f.submit t('actions.save'), class: "btn btn-default" %>

@@ -1,12 +1,12 @@
-<h1>Anhänge</h1>
-<%= link_to 'Neuen Anhang hochladen', new_event_attachment_path(@event), class: "btn btn-primary" %> <br><br>
+<h1><%= t('attachment.attachments') %></h1>
+<%= new_btn 'attachment.new', new_event_attachment_path(@event) %>
 
 <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
-                <th>Titel</th>
-                <th>Beschreibung</th>
+                <th><%= t('attachment.title') %></th>
+                <th><%= t('attachment.description') %></th>
                 <th></th>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
             <tr>
                 <td><%= attachment.title %></td>
                 <td><%= attachment.description %></td>
-                <td><div class="btn-group pull-right"><%= link_to t('actions.edit'), edit_event_attachment_path(@event,attachment), class: "btn btn-default btn-sm" %> <%= link_to t('actions.destroy'), [@event,attachment], method: :delete, data: { confirm: t('actions.confirm') },class: "btn btn-danger btn-sm" %></div></td>
+                <td><div class="btn-group pull-right"><%= edit_btn(edit_event_attachment_path(@event,attachment)) %> <%= destroy_btn([@event,attachment]) %></div></td>
             </tr>
             <% end %>
         </tbody>

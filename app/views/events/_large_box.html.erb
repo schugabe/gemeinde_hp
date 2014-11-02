@@ -14,5 +14,5 @@
     <p>
         <%=truncate strip_tags(event.description), length: text_length %>
     </p>
-    <p class="links"><%= link_to "Details anzeigen", event %></p>
+    <p class="links"><%= link_to t('event.show_details'), event %></p>
 </div>
