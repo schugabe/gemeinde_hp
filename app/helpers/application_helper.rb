@@ -25,7 +25,7 @@ module ApplicationHelper
         text = "jetzt"
         type = "success"
       end
-      "<span class=\"label label-#{type}\">#{text}</span>".html_safe unless text.blank?
+      " <span class=\"label label-#{type}\">#{text}</span>".html_safe unless text.blank?
     end
   end
   

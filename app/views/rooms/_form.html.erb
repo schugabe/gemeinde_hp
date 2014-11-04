@@ -1,25 +1,12 @@
-<%= bootstrap_form_for(@room, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f| %>
-  <% if @room.errors.any? %>
-    <div class="alert alert-warning">
-      <ul>
-      <% @room.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
- 
+<%= bootstrap_form_for(@room, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-6") do |f| %>
+    <%= print_errors @room %>
     <%= f.text_field :name %>
- 
-    <%= f.text_area :description %>
- 
+    <%= f.text_area :description, rows: 10 %>
     <%= f.text_field :street %>
- 
     <%= f.number_field :plz %>
  
     <%= f.text_field :city %>
-  <%= f.form_group do %>
-    <%= f.primary t('actions.save') %>
-  <% end %>
+    <%= f.form_group do %>
+        <%= f.primary t('actions.save') %>
+    <% end %>
 <% end %>

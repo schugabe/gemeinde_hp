@@ -1,7 +1,7 @@
 <% text_length = 160 if text_length.nil?%>
 <div class="event-box">
     <h2><%= event.title %></h2>
-    <p class="date"><%= event_duration(event) %> <%= state_label(event) %></p>
+    <p class="date"><%= event_duration(event) %><%= state_label(event) %><% unless event.room.nil? %>, <%= render event.room %><% end %></p>
     <p>
       <%=truncate strip_tags(event.description), length: text_length %>
     </p>

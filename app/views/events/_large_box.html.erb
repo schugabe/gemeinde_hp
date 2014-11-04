@@ -8,7 +8,7 @@
         <div>
     <% end %>
             <h2><%= event.title %></h2>
-            <p class="date"><%= event_duration(event) %> <%= state_label(event) %></p>
+            <p class="date"><%= event_duration(event) %><%= state_label(event) %><% unless event.room.nil? %>, <%= render event.room %><% end %></p>
         </div>
     </div>
     <p>
