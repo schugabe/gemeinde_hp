@@ -25,7 +25,7 @@
             <h3><%= audio_file.title%> <small><%= link_to "Download", audio_file.upload.url %></small></h3>
             <div class="row hidden-xs">
                 <div class="col-xs-12">
-                    <audio src="<%= audio_file.upload.url %>" preload="auto" />
+                    <audio src="<%= audio_file.upload.url %>" preload="none" />
                 </div>
             </div>
         <% end %>
