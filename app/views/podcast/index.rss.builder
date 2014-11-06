@@ -27,7 +27,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:m
         xml.pubDate podcast.created_at.to_s(:rfc822)
         xml.link event_url(podcast.event)
         xml.guid event_url(podcast.event)
-        xml.enclosure url: "#{request.protocol}#{request.host_with_port}#{podcast.upload.url}", length: podcast.upload_file_size, type: podcast.upload_content_type
+        xml.enclosure url: "http://evang-thening.at/#{podcast.upload.url}", length: podcast.upload_file_size, type: podcast.upload_content_type
         xml.itunes :author, "Evangelische Gemeinde Thening"
         xml.itunes :subtitle, truncate(podcast.description, length: 150)
         xml.itunes :summary, podcast.description
