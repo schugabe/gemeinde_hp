@@ -32,7 +32,7 @@ class MagazinesController < ApplicationController
 
     respond_to do |format|
       if @magazine.save    
-        format.html { redirect_to @magazine, notice: 'Magazine was successfully created.' }
+        format.html { redirect_to @magazine, notice: t('actions.created') }
         format.json { render action: 'show', status: :created, location: @magazine }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class MagazinesController < ApplicationController
   def update
     respond_to do |format|
       if @magazine.update(magazine_params)
-        format.html { redirect_to @magazine, notice: 'Magazine was successfully updated.' }
+        format.html { redirect_to @magazine, notice: t('actions.updated') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

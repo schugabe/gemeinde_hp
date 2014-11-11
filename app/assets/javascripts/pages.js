@@ -55,9 +55,8 @@ $(document).ready(function(){
             day: 'dddd d.M'
         }
 	});
-    
     $(window).scroll(function(){
-        if($(this).scrollTop()>=($('.jumbotron').height()+$('.navbar-fixed-top').height())){
+        if($(this).scrollTop() >= ($('.jumbotron').height())){
             $('body').addClass('scrolling');
         }
         else {

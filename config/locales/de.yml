@@ -31,6 +31,7 @@ de:
       sign_in: "Anmelden"
       forgot:  "Passwort vergessen?"
       confirmation: Bestätigung nicht erhalten?
+      new: "Neuen Benutzer anlegen"
   room:
       room: Raum
       rooms: Räume
@@ -52,10 +53,12 @@ de:
       title: Titel
       starts_at: Begin
       ends_at: Ende
+      upcoming: Demnächst
   magazine:
       magazine: Rundbrief
       edit: Rundbrief bearbeiten
       new: Neuen Rundbrief anlegen
+      current: Aktueller Rundbrief
   page:
       new: Neue Seite anlegen
   team:

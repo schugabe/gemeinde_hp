@@ -8,17 +8,27 @@
 </div>
 <% end %>
 
-<% unless @events.nil? || @events.length <= 0 %>
-<h2>Upcoming</h2>
+<% unless @top_events.nil? || @top_events.length <= 0 %>
+<h1><%= t 'event.upcoming' %></h1>
 <div class="row">
     <div class="col-sm-12 col-md-6">
-        <%= render partial: "events/large_box", object: @events.first, as: "event", locals: {text_length: 1000} %>
+        <%= render partial: "events/large_box", object: @top_events.first, as: "event", locals: {text_length: 1000} %>
     </div>
     <div class="col-sm-12 col-md-6">
+        <% unless @top_events[1].nil? %>
         <div class="row">
-            <%= render partial: "events/event_box", collection: @events, layout: "/events/regular_box", as: "event", locals: {skip: 1} %>
+            <%= render partial: "events/event_box", object: @top_events[1], as: "event" %>
         </div>
+        <% end %>
+        <% unless @top_events[2].nil? %>
+        <div class="row">
+            <%= render partial: "events/event_box", object: @top_events[2], as: "event" %>
+        </div>
+        <% end %>
     </div>
+</div>
+<div class="row">
+    <%= render partial: "events/event_box", collection: @week, layout: "/events/regular_box", as: "event" %>
 </div>
 <% end %>
 
@@ -26,12 +36,12 @@
 <div class="row">
     <div class="col-md-4 col-sm-12">
         <%if @magazine %>
-        <h2>Aktueller Rundbrief <small><%= @magazine.issue %>-<%= @magazine.year %></small></h2>
+        <h2><%= t 'magazine.current' %> <small><%= @magazine.issue %>-<%= @magazine.year %></small></h2>
         <%= link_to image_tag(@magazine.pdf.url(:thumbnail), class: "img-responsive"), readpdf_magazine_path(@magazine), data: {no_turbolink: true} %>
         <% end %>
     </div>
     <div class="col-md-8 col-sm-12">
-        <h2>Podcast</h2>
+        <h2><%= t 'podcast.podcast' %></h2>
         <%= render partial: "podcast/podcast", collection: @podcasts %>
     </div>
 </div>

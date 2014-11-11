@@ -33,7 +33,7 @@ module ApplicationHelper
     date.nil? ? "Nie" : l(date, format: :long)
   end
   
-  def link_btn(body, url, style="btn-default" )
+  def link_btn(body, url, style="btn-default btn-sm" )
     link_to body, url, class:"btn #{style}"
   end
   

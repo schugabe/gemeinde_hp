@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   scope :before, ->(end_time) { where("ends_at < ?", Event.format_date(end_time)) }
   scope :after, ->(start_time) { where("starts_at > ?", Event.format_date(start_time)) }
   scope :upcoming, -> { where("ends_at > ?", DateTime.now).order("starts_at asc") }
+  scope :this_week, -> { where("ends_at < ?", DateTime.now.end_of_day+7.days).order("starts_at asc") }
   
   validate :check_dates, :check_room
   

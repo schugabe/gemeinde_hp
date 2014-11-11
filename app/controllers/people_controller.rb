@@ -27,7 +27,7 @@ class PeopleController < ApplicationController
   def create
     @person = @team.persons.build(person_params)
     if @person.save
-      redirect_to [@team,@person], notice: 'Person was successfully created.'
+      redirect_to [@team,@person], notice: t('actions.created')
     else
       render action: 'new'
     end
@@ -35,7 +35,7 @@ class PeopleController < ApplicationController
 
   def update
     if @person.update(person_params)
-      redirect_to [@team,@person], notice: 'Person was successfully updated.'
+      redirect_to [@team,@person], notice: t('actions.updated')
     else
       render action: 'edit'
     end
