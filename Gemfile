@@ -30,6 +30,7 @@ gem 'font-awesome-sass'
 gem 'will_paginate-bootstrap'
 gem 'audiojs'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem 'recurrence'
 
 group :development, :test do
   gem 'factory_girl_rails'

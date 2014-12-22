@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031133114) do
+ActiveRecord::Schema.define(version: 20141222185408) do
 
   create_table "attachments", force: true do |t|
     t.string   "title"
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 20141031133114) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "room_id"
+    t.integer  "recurring_id"
   end
 
+  add_index "events", ["recurring_id"], name: "index_events_on_recurring_id"
   add_index "events", ["room_id"], name: "index_events_on_room_id"
 
   create_table "magazines", force: true do |t|
@@ -79,6 +81,15 @@ ActiveRecord::Schema.define(version: 20141031133114) do
   end
 
   add_index "people", ["team_id"], name: "index_people_on_team_id"
+
+  create_table "recurrings", force: true do |t|
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.integer  "frequency"
+    t.integer  "unit",       default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"

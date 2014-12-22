@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
   
   has_many :attachments, :dependent => :destroy
   belongs_to :room
+  belongs_to :recurring
   
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)

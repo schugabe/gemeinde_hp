@@ -36,11 +36,34 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    
     if @event.save
-        redirect_to @event, notice: t('actions.created')
+      @recurring = Recurring.new(recurring_params)
+      @recurring.starts_at = @event.starts_at.to_date
+      @recurring.save
+      
+      @event.recurring = @recurring
+      @event.save
+      
+      if @recurring.frequency > 0
+        day_difference = @event.ends_at - @event.starts_at
+        first = false
+        @recurring.get_event_dates.each { |date| 
+          if first == false
+            first = true
+            next
+          end
+          rec_event = @event.dup
+          rec_event.starts_at = Time.zone.local(date.year, date.month, date.day, @event.starts_at.hour, @event.starts_at.min, @event.starts_at.sec)
+          rec_event.ends_at = rec_event.starts_at + day_difference
+          rec_event.recurring = @recurring
+          rec_event.save
+        }
+      end
+      redirect_to @event, notice: t('actions.created')
     else
       render action: 'new'
-    end
+    end    
   end
 
   def update
@@ -63,5 +86,9 @@ class EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit(:title, :description, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time, :room_id)
+    end
+    
+    def recurring_params
+      params.require(:recurring).permit(:starts_at, :ends_at, :unit, :frequency)      
     end
 end

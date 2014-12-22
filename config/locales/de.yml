@@ -86,6 +86,12 @@ de:
       new: Neuen Raum anlegen
       name: Name
       address: Adresse
+  recurring:
+      unit:
+        disabled: Keine Wiederholung
+        day: Tage
+        week: Wochen
+        month: Monate
   activerecord:
       models:
           page: Seite
@@ -108,6 +114,7 @@ de:
               starts_at_date: Begin
               ends_at_date: Ende
               room: Raum
+              recurring_event: Wiederholende Veranstaltung
           user:
               password: Passwort
               remember_me: Angemeldet bleiben
