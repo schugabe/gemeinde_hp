@@ -16,6 +16,6 @@ class Attachment < ActiveRecord::Base
   validates :title, :upload, presence: true
   
   belongs_to :event
-  sanitizes :description
+  #sanitizes :description
   include Authority::Abilities
 end

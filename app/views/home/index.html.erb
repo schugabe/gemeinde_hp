@@ -8,28 +8,16 @@
 </div>
 <% end %>
 
-<% unless @top_events.nil? || @top_events.length <= 0 %>
-<h1><%= t 'event.upcoming' %></h1>
-<div class="row">
-    <div class="col-sm-12 col-md-6">
-        <%= render partial: "events/large_box", object: @top_events.first, as: "event", locals: {text_length: 1000} %>
-    </div>
-    <div class="col-sm-12 col-md-6">
-        <% unless @top_events[1].nil? %>
-        <div class="row">
-            <%= render partial: "events/event_box", object: @top_events[1], as: "event" %>
-        </div>
-        <% end %>
-        <% unless @top_events[2].nil? %>
-        <div class="row">
-            <%= render partial: "events/event_box", object: @top_events[2], as: "event" %>
-        </div>
-        <% end %>
-    </div>
-</div>
-<div class="row">
-    <%= render partial: "events/event_box", collection: @week, layout: "/events/regular_box", as: "event" %>
-</div>
+<% unless @top_event.nil?  %>
+  <h1><%= t 'event.upcoming' %></h1>
+  <div class="row">
+      <div class="col-sm-12 col-md-6">
+          <%= render partial: "events/large_box", object: @top_event, as: "event", locals: {text_length: 1000} %>
+      </div>
+  </div>
+  <div class="row">
+      <%= render partial: "events/event_box", collection: @week, layout: "/events/regular_box", as: "event" %>
+  </div>
 <% end %>
 
 

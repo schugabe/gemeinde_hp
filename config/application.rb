@@ -4,7 +4,7 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module GemeindeHp
   class Application < Rails::Application
@@ -37,6 +37,8 @@ module GemeindeHp
     
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.precompile += %w( pdfreader.js pdf.css )
-    config.action_view.sanitized_allowed_tags = 'br', 'b', 'i', 'u', 'blockqoute', 'a', 'ul', 'li', 'ol'
+    
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

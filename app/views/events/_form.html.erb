@@ -64,8 +64,16 @@
     <div class="form-group">
       <%= f.label :recurring_event, class: "col-sm-2 control-label" %>
       <%= fields_for :recurring, @event.recurring do |recurring_fields| %>
-        <div class="col-sm-1">
-            <%=recurring_fields.select :frequency, options_for_select((0..10).step(1).to_a.map{|s| ["#{s}", s]}),{}, {class: "form-control"} %>
+        <div class="col-sm-3">
+            <%=recurring_fields.select :frequency, options_for_select((0..10).step(1).to_a.map{|s| 
+              if s==0 
+                ["Nicht wiederholen",0] 
+              elsif s==1
+                ["Jede(n)",1]
+              else 
+                ["Alle #{s}", s]
+              end
+              }),{}, {class: "form-control"} %>
         </div>
         <div class="col-sm-3">
             <%= recurring_fields.select :unit, Recurring.units.keys.to_a.map { |u| [I18n.t("recurring.unit.#{u}"), u] },{}, {class: "form-control"} %>
@@ -77,6 +85,7 @@
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
             </div>
+            <p class="help-block">bis Datum</p>
         </div>
       <% end %>
     </div>

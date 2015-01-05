@@ -1,4 +1,4 @@
-GemeindeHp::Application.configure do
+Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -20,7 +20,7 @@ GemeindeHp::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -31,9 +31,6 @@ GemeindeHp::Application.configure do
 
   # Generate digests for assets URLs.
   config.assets.digest = true
-
-  # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '1.0'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -88,5 +85,7 @@ GemeindeHp::Application.configure do
     :password       => ENV['EMAIL_PASSWORD'],
     :domain         => 'evang-thening.at'
   }
-
+  
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 end

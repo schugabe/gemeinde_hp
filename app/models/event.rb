@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   
   include Authority::Abilities
   resourcify
-  sanitizes :description
+  #sanitizes :description
   
   has_many :attachments, :dependent => :destroy
   belongs_to :room
