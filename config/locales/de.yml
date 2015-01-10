@@ -60,6 +60,7 @@ de:
       edit: Rundbrief bearbeiten
       new: Neuen Rundbrief anlegen
       current: Aktueller Rundbrief
+      breadcrumb: Gemeinde Rundbrief
   page:
       new: Neue Seite anlegen
   team:
@@ -97,6 +98,11 @@ de:
       banner: Banner
       new: Neuen Banner erstellen
       edit: Banner bearbeiten
+  newspost:
+      newspost: Neuigkeiten
+      new: News erstellen
+      edit: News bearbeiten
+      rssfeed: Rss Feed
   activerecord:
       models:
           page: Seite
@@ -107,6 +113,7 @@ de:
           person: Person
           Team: Team
           magazine: Rundbrief
+          newspost: Neuigkeit
       attributes:
           page:
               title: Titel
@@ -148,6 +155,9 @@ de:
           team:
               description: Beschreibung
               name: Name
+          newspost:
+              title: Titel
+              body: Text
   breadcrumbs:
      application:
        root: "Index"

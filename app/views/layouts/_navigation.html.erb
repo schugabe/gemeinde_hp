@@ -77,6 +77,11 @@
         		        <%= link_to("Banner", banners_path)  %>
         	        </li>
                 <% end %>
+                <% if current_user.can_update?(Newspost) %>
+                    <li>
+        		        <%= link_to("News", newsposts_path)  %>
+        	        </li>
+                <% end %>
             </ul>
         </li>
         <% end %>

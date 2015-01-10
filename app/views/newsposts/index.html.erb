@@ -1,0 +1,17 @@
+<h1><%= t('newspost.newspost') %></h1>
+
+<% if current_or_null_user.can_create?(Newspost) %>
+    <%= new_btn 'newspost.new', new_newspost_path, false %> <%= link_btn t('newspost.rssfeed'), newsposts_path(format: :rss), "btn-default"%>
+<% end %>
+
+<% @newsposts.each do |newspost| %>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2><%= newspost.title %> <small><%=format_datetime newspost.created_at %></small></h2>
+            <p><%= sanitize newspost.body %></p>
+            <% if current_or_null_user.can_update?(newspost) %>
+                <div class="btn-group"><%= edit_btn edit_newspost_path(newspost) %> <%= destroy_btn newspost %></div>
+            <% end %>
+        </div>
+    </div>
+<% end %>

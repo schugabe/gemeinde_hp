@@ -1,11 +1,4 @@
 GemeindeHp::Application.routes.draw do
-  root :to => "home#index"
-  get "page/:permalink", :to => "pages#show", :as => :page_permalink
-  get 'calendar/index'
-  get 'calendar/upcoming'
-  get 'calendar/upcoming_month'
-  get 'podcast/index'
-  
   devise_for :users, :controllers => { :registrations => :registrations }, :path_prefix => 'my'
   resources :users do
     member do
@@ -38,6 +31,14 @@ GemeindeHp::Application.routes.draw do
   resources :banners do
     post :sort, on: :collection
   end
-
   
+  resources :newsposts
+
+  get "page/:permalink", :to => "pages#show", :as => :page_permalink
+  get 'calendar/index'
+  get 'calendar/upcoming'
+  get 'calendar/upcoming_month'
+  get 'podcast/index'
+  
+  root :to => "home#index"
 end

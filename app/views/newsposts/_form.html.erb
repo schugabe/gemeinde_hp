@@ -1,0 +1,8 @@
+<%= bootstrap_form_for(@newspost, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_area :body, class: "wysihtml5", rows: 15 %>
+    
+    <%= f.form_group do %>
+        <%= f.primary t('actions.save') %>
+    <% end %>
+<% end %>
