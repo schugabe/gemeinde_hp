@@ -21,6 +21,6 @@ jQuery ->
                 
                 # the :thing hash gets passed to @thing.attributes
                 # row_order is the default column name expected in ranked-model
-                data: { id: item_id, person: { row_order_position: position } }
+                data: { id: item_id, sort_data: { row_order_position: position } }
             )
     )

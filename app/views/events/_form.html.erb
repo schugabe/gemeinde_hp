@@ -61,34 +61,48 @@
         </div>
     </div>
     
-    <div class="form-group">
-      <%= f.label :recurring_event, class: "col-sm-2 control-label" %>
-      <%= fields_for :recurring, @event.recurring do |recurring_fields| %>
-        <div class="col-sm-3">
-            <%=recurring_fields.select :frequency, options_for_select((0..10).step(1).to_a.map{|s| 
-              if s==0 
-                ["Nicht wiederholen",0] 
-              elsif s==1
-                ["Jede(n)",1]
-              else 
-                ["Alle #{s}", s]
-              end
-              }),{}, {class: "form-control"} %>
-        </div>
-        <div class="col-sm-3">
-            <%= recurring_fields.select :unit, Recurring.units.keys.to_a.map { |u| [I18n.t("recurring.unit.#{u}"), u] },{}, {class: "form-control"} %>
-        </div>
-        <div class="col-sm-2">
-            <div class='input-group date datepicker' id="event_starts_at_date_datepicker">
-                <%= recurring_fields.text_field :ends_at, class: "form-control"  %>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+    <% if current_page?(action: 'new') %>
+        <div class="form-group">
+          <%= f.label :recurring_event, class: "col-sm-2 control-label" %>
+          <%= fields_for :recurring, @event.recurring do |recurring_fields| %>
+            <div class="col-sm-3">
+                <%=recurring_fields.select :frequency, options_for_select((0..10).step(1).to_a.map{|s| 
+                  if s==0 
+                    ["Nicht wiederholen",0] 
+                  elsif s==1
+                    ["Jede(n)",1]
+                  else 
+                    ["Alle #{s}", s]
+                  end
+                  }),{}, {class: "form-control"} %>
             </div>
-            <p class="help-block">bis Datum</p>
+            <div class="col-sm-3">
+                <%= recurring_fields.select :unit, Recurring.units.keys.to_a.map { |u| [I18n.t("recurring.unit.#{u}"), u] },{}, {class: "form-control"} %>
+            </div>
+            <div class="col-sm-2">
+                <div class='input-group date datepicker' id="event_starts_at_date_datepicker">
+                    <%= recurring_fields.text_field :ends_at, class: "form-control"  %>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <p class="help-block">bis Datum</p>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
+    <% else %>
+        <% if @event.is_recurring? %>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <%= f.check_box :edit_all %> <%= t 'event.edit_all' %>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
     
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">

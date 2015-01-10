@@ -72,6 +72,11 @@
         		        <%= link_to("Räume", rooms_path)  %>
         	        </li>
                 <% end %>
+                <% if current_user.can_update?(Banner) %>
+                    <li>
+        		        <%= link_to("Banner", banners_path)  %>
+        	        </li>
+                <% end %>
             </ul>
         </li>
         <% end %>

@@ -1,18 +1,24 @@
 <div class="event-box-large">
+    <div class="row">
     <% if image = event.attachments.where("upload_content_type like 'image%'").first %>
-    <div class="preview-image-container">
-        <%= image_tag image.upload.url(:large), class: "img-responsive", alt: image.title %>
-        <div class="event-text">
+        <div class="col-sm-6">
+            <div class="preview-image-container">
+                <%= image_tag image.upload.url(:large), class: "img-responsive", alt: image.title %>
+                <div class="event-text">
+                    <h2><%= event.title %></h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
     <% else %>
-        <div>
-        <div>
-    <% end %>
+        <div class="col-sm-6">
             <h2><%= event.title %></h2>
+    <% end %>
             <p class="date"><%= event_duration(event) %><%= state_label(event) %><% unless event.room.nil? %>, <%= render event.room %><% end %></p>
+            <p>
+                <%=truncate strip_tags(event.description), length: text_length %>
+            </p>
+            <p class="links"><%= link_to t('event.show_details'), event %></p>
         </div>
     </div>
-    <p>
-        <%=truncate strip_tags(event.description), length: text_length %>
-    </p>
-    <p class="links"><%= link_to t('event.show_details'), event %></p>
 </div>

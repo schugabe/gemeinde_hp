@@ -54,6 +54,7 @@ de:
       starts_at: Begin
       ends_at: Ende
       upcoming: Demnächst
+      edit_all: Alle Events dieser Reihe aktualisieren
   magazine:
       magazine: Rundbrief
       edit: Rundbrief bearbeiten
@@ -92,6 +93,10 @@ de:
         day: Tage
         week: Wochen
         month: Monate
+  banner:
+      banner: Banner
+      new: Neuen Banner erstellen
+      edit: Banner bearbeiten
   activerecord:
       models:
           page: Seite

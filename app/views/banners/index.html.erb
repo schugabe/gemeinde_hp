@@ -1,0 +1,21 @@
+<h1><%= t 'banner.banner' %></h1>
+
+<%= new_btn 'banner.new', new_banner_path %>
+
+<table id="sortable" data-update_url="<%= sort_banners_path %>" class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banners.each do |banner| %>
+      <tr data-item_id="<%= banner.id %>" class="item">
+        <td><%= banner.title %></td>
+        <td><div class="btn-group pull-right"><%= edit_btn(edit_banner_path(banner)) %> <%= destroy_btn banner %></div></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

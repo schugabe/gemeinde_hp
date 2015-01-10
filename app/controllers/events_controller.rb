@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 
   def edit
     add_breadcrumb @event.title, @event
-    add_breadcrumb t('actions.edit')
+    add_breadcrumb t('actions.edit')    
   end
 
   def create
@@ -68,7 +68,17 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-        redirect_to @event, notice: t('actions.updated')
+      if @event.edit_all
+        @event.recurring.events.each do |e|
+          e.title = @event.title
+          e.description = @event.description
+          e.room_id = @event.room_id
+          e.save
+        end
+      else
+        @event.update_column(:recurring_id, nil)
+      end
+      redirect_to @event, notice: t('actions.updated')
     else
       render action: 'edit'
     end
@@ -85,7 +95,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:title, :description, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time, :room_id)
+      params.require(:event).permit(:title, :description, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time, :room_id, :edit_all)
     end
     
     def recurring_params

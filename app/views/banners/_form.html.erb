@@ -1,0 +1,7 @@
+<%= bootstrap_form_for(@banner, :html => { :multipart => true }, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f| %>
+    <%= f.text_field :title %>
+    <%= f.file_field :image %>
+    <%= f.form_group do %>
+        <%= f.primary t('actions.save') %>
+    <% end %>
+<% end %>

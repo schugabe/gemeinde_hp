@@ -4,5 +4,6 @@ class HomeController < ApplicationController
     @week = Event.upcoming.this_week.where("id <> (?)",@top_event)
     @magazine = Magazine.first
     @podcasts = Attachment.where("upload_content_type like 'audio%'").order("created_at desc").limit(3)
+    @banners = Banner.rank(:row_order)
   end
 end

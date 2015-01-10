@@ -9,7 +9,7 @@
                 <%= person.about %>
                 <% unless person.contact.nil?  || person.contact.blank? %>
                 <br>
-                <%= mail_to t('person.contact'), person.contact %>
+                <%= mail_to person.contact, t('person.contact'), encode: "javascript" %>
                 <% end %>
             </p>
         </div>

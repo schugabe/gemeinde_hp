@@ -1,20 +1,19 @@
 <div id="carousel-jumbotron" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#carousel-jumbotron" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-jumbotron" data-slide-to="1"></li>
+        <% @banners.each_with_index do |banner,i| %>
+            <li data-target="#carousel-jumbotron" data-slide-to="<%= i %>" <% if i==0 %>class="active"<% end %>></li>
+        <% end %>
     </ol>
     <div class="carousel-inner">
-        <div class="item active">
-            <%= image_tag "banner/header_1.jpg", class: "img-responsive" %>
-            <div class="carousel-caption">
-                <h3>Evangelische Kirche Thening</h3>
+        <% @banners.each_with_index do |banner,i| %>
+            <div class="item <% if i == 0%>active<%end%>">
+                <%= image_tag banner.image.url(:large), class: "img-responsive" %>
+                <% unless banner.title.blank? %>
+                    <div class="carousel-caption">
+                        <h3><%= banner.title %></h3>
+                    </div>
+                <% end %>
             </div>
-        </div>
-        <div class="item">
-            <%= image_tag "banner/header_2.jpg", class: "img-responsive" %>
-            <div class="carousel-caption">
-                <h3>Kirche im Feld</h3>
-            </div>
-        </div>
+        <% end %>
     </div>
 </div>

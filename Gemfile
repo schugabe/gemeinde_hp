@@ -32,6 +32,7 @@ gem 'audiojs'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'recurrence'
 gem 'responders', '~> 2.0'
+gem 'actionview-encoded_mail_to'
 
 group :development, :test do
   gem 'factory_girl_rails'
@@ -64,6 +65,5 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
 #gem 'unicorn'

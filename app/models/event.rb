@@ -16,6 +16,18 @@ class Event < ActiveRecord::Base
   belongs_to :room
   belongs_to :recurring
   
+  def edit_all
+    @edit_all
+  end
+  
+  def edit_all=(val)
+    @edit_all = (val == '1')
+   end 
+  
+  def is_recurring?
+    !self.recurring.nil?
+  end
+  
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
   end

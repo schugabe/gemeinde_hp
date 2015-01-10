@@ -13,7 +13,7 @@
             <% if @remaining_files && @remaining_files.count > 0 %>
 				<ul>
 					<% @remaining_files.each do |attachment| %>
-						<li><%= link_to attachment.title, attachment.upload.url %></li>
+						<li><%= link_to attachment.title, attachment.upload.url, target: "_blank" %></li>
 					<% end %>
 				</ul>
 			<% end %>
