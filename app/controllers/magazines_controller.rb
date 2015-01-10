@@ -3,7 +3,7 @@ class MagazinesController < ApplicationController
   layout :resolve_layout
   authorize_actions_for Magazine, actions: { readpdf: 'read' }
   
-  add_breadcrumb I18n.('magazine.breadcrumb'), :magazines_path
+  add_breadcrumb I18n.t('magazine.breadcrumb'), :magazines_path
   
   # GET /magazines
   # GET /magazines.json
